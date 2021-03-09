@@ -9,38 +9,31 @@ import Foundation
 import Action
 import RxSwift
 import RxAlamofire
+import Alamofire
 class LoginViewModel{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
-    func apiTesting(source:Data) -> CocoaAction{
-        return CocoaAction{
-            self.uploading(source: source)
-            return Observable.empty()
-        }
-    }
 }
 extension LoginViewModel{
     func uploading(source:Data){
-        RxAlamofire
-            .upload(multipartFormData: { builder in
+        AF.upload(multipartFormData: { builder in
                 builder.append(
                     source,
-                    withName: "test",
-                    fileName: "test.jpg",
+                    withName: "image_file",
+                    fileName: "file.jpg",
                     mimeType: "image/jpeg"
                 )
-            }, to: URL(string: "https://api.remove.bg/v1.0/removebg")!,method: .post, headers: [
+            }, to: URL(string: "https://api.remove.bg/v1.0/removebg")!, method: .post, headers: [
                 "X-Api-Key": apiKey
             ])
-            .subscribe(onNext:{upload in
-                upload.responseJSON { imageResponse in
-                    guard let imageData = imageResponse.data, let image = UIImage(data: imageData) else { return }
-                    self.resultImage.onNext(image)
+        .responseJSON {json in
+            if let imageData = json.data{
+                guard let img = UIImage(data: imageData) else {
+                    self.resultImage.onError(fatalError())
                 }
-            },onError:{ error in
-                self.resultImage.onError(error)
-            })
-            .disposed(by: DisposeBag())
+                self.resultImage.onNext(img)
+            }
+        }
     }
 }
 
