@@ -13,7 +13,7 @@ extension UIViewController{
         return self.children.first ?? self
     }
 }
-class Coordinator{
+class Coordinator:SceneCoordinatorType{
     private let bag = DisposeBag()
     private let window:UIWindow
     var currentVC:UIViewController
@@ -51,5 +51,25 @@ class Coordinator{
         }
         return subject.ignoreElements()
     }
-
+    func close(animated:Bool) -> Completable{
+        return Completable.create{[unowned self] com in
+            if let presentingVC = self.currentVC.presentingViewController {
+                self.currentVC.dismiss(animated: animated){
+                    self.currentVC = presentingVC.sceneViewController
+                    com(.completed)
+                }
+            }else if let nav = self.currentVC.navigationController{
+                guard nav.popViewController(animated: animated) != nil else {
+                    com(.error(TransitionError.cannotPop))
+                    return Disposables.create()
+                }
+                self.currentVC = nav.children.last!
+                com(.completed)
+            }else{
+                com(.error(TransitionError.unKnownError))
+            }
+            return Disposables.create()
+        }
+    }
 }
+
