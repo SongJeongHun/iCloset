@@ -2,6 +2,7 @@ PODS:
   - Action (4.2.0):
     - RxCocoa (< 7.0, >= 5.0)
     - RxSwift (< 7.0, >= 5.0)
+  - Alamofire (5.4.1)
   - Firebase (6.33.0):
     - Firebase/Core (= 6.33.0)
   - Firebase/Core (6.33.0):
@@ -76,6 +77,11 @@ PODS:
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
   - PromisesObjC (1.2.10)
+  - RxAlamofire (5.7.1):
+    - RxAlamofire/Core (= 5.7.1)
+  - RxAlamofire/Core (5.7.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 5.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -98,9 +104,11 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - Alamofire
   - Firebase
   - FSCalendar
   - "NSObject+Rx"
+  - RxAlamofire
   - RxCocoa
   - RxFirebase/Database
   - RxFirebase/Storage
@@ -110,6 +118,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Action
+    - Alamofire
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -126,6 +135,7 @@ SPEC REPOS:
     - nanopb
     - "NSObject+Rx"
     - PromisesObjC
+    - RxAlamofire
     - RxCocoa
     - RxFirebase
     - RxFirebaseDatabase
@@ -136,6 +146,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Action: 5dc2194f7a0b77857c82a677b0da655f197c005f
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
   FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
   FirebaseCore: d889d9e12535b7f36ac8bfbf1713a0836a3012cd
@@ -152,6 +163,7 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  RxAlamofire: 8e144c62dcc01d68dcb366bfc542eb6dd46bab78
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxFirebase: 45e6448c69c7212e21f8ba89144443f916437861
   RxFirebaseDatabase: 5c1d3d31c9858f05ff6ad92e5b4b696354d1497b
@@ -160,6 +172,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 9e8ed07e80263ca16f1b36e56b740d2f1c54887d
+PODFILE CHECKSUM: 515dc1522abc4218b4f03b10d8fb14a88e5be8b4
 
 COCOAPODS: 1.9.3

@@ -15,5 +15,7 @@ target 'iCloset' do
   pod 'Firebase'
   pod 'SideMenu'
   pod 'RxFirebase/Storage'
+  pod 'Alamofire'
+  pod 'RxAlamofire'
 
 end

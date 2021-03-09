@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
+		A7203A1325F78537005E1269 /* LoginViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* LoginViewControllerExtension.swift */; };
 		A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */; };
 		A79602E325F5F65100686D69 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E225F5F65100686D69 /* LoginViewModel.swift */; };
 		A79602E625F5F65900686D69 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E525F5F65900686D69 /* Scene.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
+		A7203A1225F78537005E1269 /* LoginViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerExtension.swift; sourceTree = "<group>"; };
 		A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBindableType.swift; sourceTree = "<group>"; };
 		A79602E225F5F65100686D69 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A79602E525F5F65900686D69 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				A7F9013925F0CFA2007DB73A /* Main.storyboard */,
 				A7F9013E25F0CFA3007DB73A /* LaunchScreen.storyboard */,
 				A79602E825F5F7D400686D69 /* LoginViewController.swift */,
+				A7203A1225F78537005E1269 /* LoginViewControllerExtension.swift */,
 				A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */,
 			);
 			path = ViewController;
@@ -257,6 +260,7 @@
 			files = (
 				A79602E925F5F7D400686D69 /* LoginViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
+				A7203A1325F78537005E1269 /* LoginViewControllerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
 				A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */,
 				A79602E625F5F65900686D69 /* Scene.swift in Sources */,
