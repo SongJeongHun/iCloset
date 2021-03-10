@@ -13,6 +13,7 @@ import Alamofire
 class LoginViewModel{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
+    var resultError = PublishSubject<ConvertFail>()
 }
 extension LoginViewModel{
     func uploading(source:Data){
@@ -29,11 +30,15 @@ extension LoginViewModel{
         .responseJSON {json in
             if let imageData = json.data{
                 guard let img = UIImage(data: imageData) else {
-                    self.resultImage.onError(fatalError())
+                    self.resultError.onError(ConvertFail.fail)
+                    return 
                 }
                 self.resultImage.onNext(img)
             }
         }
     }
+}
+enum ConvertFail:Error{
+    case fail
 }
 

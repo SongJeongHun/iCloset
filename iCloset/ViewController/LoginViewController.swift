@@ -27,31 +27,38 @@ class LoginViewController: UIViewController,ViewControllerBindableType,UINavigat
         imagePickButton.rx.tap
             .observeOn(MainScheduler.instance)
             .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:{_ in
+            .subscribe(onNext:{ _ in
                 self.addThumbnailAlert()
             })
             .disposed(by: rx.disposeBag)
         removeBG.rx.tap
             .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:{_ in
+            .subscribe(onNext:{ _ in
                 if let source = self.inputImage.image{
-                    let jpegSource = source.jpegData(compressionQuality: 0.5)!
-                    self.viewModel.uploading(source: jpegSource)
                     self.indicator.isHidden = false
                     self.indicator.startAnimating()
+                    let jpegSource = source.jpegData(compressionQuality: 0.5)!
+                    self.viewModel.uploading(source: jpegSource)
                 }
             })
             .disposed(by: rx.disposeBag)
         viewModel.resultImage
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext:{[unowned self]image in
+            .subscribe(onNext:{ [unowned self] image in
                 self.resultImage.image = image
                 self.indicator.stopAnimating()
                 self.indicator.isHidden = true
-            },onError: { error in
-                print(error)
             })
             .disposed(by: rx.disposeBag)
+        viewModel.resultError
+            .subscribe(onNext:{ _ in
+                self.indicator.stopAnimating()
+                self.indicator.isHidden = true
+                let alert = UIAlertController(title: "알림", message: "물체가 너무 많거나 물체를 찾을 수 없습니다.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            })
+            .disposed(by:rx.disposeBag)
     }
-    
 }
