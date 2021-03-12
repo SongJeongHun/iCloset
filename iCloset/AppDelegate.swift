@@ -12,11 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        FirebaseApp.configure()
-        let loginVM = LoginViewModel()
-        let loginScene = Scene.login(loginVM)
+        FirebaseApp.configure()
+        let introVM = IntroViewModel()
+        let introScene = Scene.intro(introVM)
         let coordinator = Coordinator(window: window!)
-        coordinator.transition(to: loginScene, using: .root, animated: true)
+        coordinator.transition(to: introScene, using: .root, animated: true)
         return true
     }
 }

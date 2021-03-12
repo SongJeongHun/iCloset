@@ -9,6 +9,7 @@ import Foundation
 
 enum Scene{
     case login(LoginViewModel)
+    case intro(IntroViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -18,6 +19,10 @@ extension Scene{
             guard var loginVC = storyboard.instantiateViewController(identifier: "Login") as? LoginViewController else { fatalError() }
             loginVC.bind(viewModel: viewModel)
             return loginVC
+        case .intro(let viewModel):
+            guard var introVC = storyboard.instantiateViewController(identifier: "Intro") as? IntroViewController else { fatalError() }
+            introVC.bind(viewModel: viewModel)
+            return introVC
         }
     }
 }

@@ -33,6 +33,7 @@ class LoginViewController: UIViewController,ViewControllerBindableType,UINavigat
             .disposed(by: rx.disposeBag)
         removeBG.rx.tap
             .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .subscribe(onNext:{ _ in
                 if let source = self.inputImage.image{
                     self.indicator.isHidden = false

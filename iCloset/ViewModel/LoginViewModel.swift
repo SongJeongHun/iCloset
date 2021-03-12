@@ -30,7 +30,7 @@ extension LoginViewModel{
         .responseJSON {json in
             if let imageData = json.data{
                 guard let img = UIImage(data: imageData) else {
-                    self.resultError.onError(ConvertFail.fail)
+                    self.resultError.onNext(ConvertFail.fail)
                     return 
                 }
                 self.resultImage.onNext(img)
