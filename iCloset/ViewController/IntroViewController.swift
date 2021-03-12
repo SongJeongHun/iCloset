@@ -6,12 +6,14 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
+import Action
 class IntroViewController: UIViewController,ViewControllerBindableType{
     var viewModel: IntroViewModel!
     @IBOutlet weak var loginPanel:UIView!
-    @IBOutlet weak var loginButton:UIView!
-    @IBOutlet weak var joinButton:UIView!
+    @IBOutlet weak var loginButton:UIButton!
+    @IBOutlet weak var joinButton:UIButton!
     @IBOutlet weak var findButton:UIButton!
     @IBOutlet weak var socialLogin:UIButton!
     @IBOutlet weak var userID:UITextField!
@@ -21,7 +23,7 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
         super.viewDidLoad()
     }
     func bindViewModel() {
-        
+        joinButton.rx.action = viewModel.joinAction()
     }
     func setUI(){
         //Set CornerRadius
@@ -35,7 +37,6 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
         loginPanel.layer.shadowOffset = CGSize(width: 2, height: 3)
         loginPanel.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         loginPanel.layer.shadowOpacity = 0.2
-       
     }
 }
 

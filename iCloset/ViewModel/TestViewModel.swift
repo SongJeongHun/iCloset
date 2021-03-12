@@ -10,12 +10,12 @@ import Action
 import RxSwift
 import RxAlamofire
 import Alamofire
-class LoginViewModel{
+class TestViewModel{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()
 }
-extension LoginViewModel{
+extension TestViewModel{
     func uploading(source:Data){
         AF.upload(multipartFormData: { builder in
                 builder.append(

@@ -10,8 +10,8 @@
 import UIKit
 import RxSwift
 import NSObject_Rx
-class LoginViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate {
-    var viewModel:LoginViewModel!
+class TestViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate {
+    var viewModel:TestViewModel!
     let picker = UIImagePickerController()
     @IBOutlet weak var inputImage:UIImageView!
     @IBOutlet weak var resultImage:UIImageView!

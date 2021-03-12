@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        let introVM = IntroViewModel()
-        let introScene = Scene.intro(introVM)
         let coordinator = Coordinator(window: window!)
+        let introVM = IntroViewModel(sceneCoordinator: coordinator, userID: "")
+        let introScene = Scene.intro(introVM)
         coordinator.transition(to: introScene, using: .root, animated: true)
         return true
     }
