@@ -8,6 +8,7 @@ import RxSwift
 import Action
 import Foundation
 class IntroViewModel:ViewModeltype{
+    var userStorage = UserJoinStorage()
     func joinAction() -> CocoaAction{
         return CocoaAction{ _ in
             let joinScene = Scene.join(self)
