@@ -96,6 +96,15 @@
 			path = test;
 			sourceTree = "<group>";
 		};
+		A76C503C25FF257F00009139 /* UserStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A7FE12D625FC99E3007EF1B8 /* UserStorage.swift */,
+				A7843CD225FDD0CE004443A0 /* User.swift */,
+			);
+			path = UserStorage;
+			sourceTree = "<group>";
+		};
 		A7A9D81F25F5F0FE00C4FBBD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +121,7 @@
 		A7A9D82025F5F10500C4FBBD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A7A9D82225F5F10E00C4FBBD /* Storage */,
 				A79602E225F5F65100686D69 /* TestViewModel.swift */,
 				A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */,
 				A7504E8E25FB53310042D6D6 /* ViewModelType.swift */,
@@ -133,8 +143,7 @@
 		A7A9D82225F5F10E00C4FBBD /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				A7FE12D625FC99E3007EF1B8 /* UserStorage.swift */,
-				A7843CD225FDD0CE004443A0 /* User.swift */,
+				A76C503C25FF257F00009139 /* UserStorage */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -160,7 +169,6 @@
 		A7F9013225F0CFA2007DB73A /* iCloset */ = {
 			isa = PBXGroup;
 			children = (
-				A7A9D82225F5F10E00C4FBBD /* Storage */,
 				A7A9D82125F5F10A00C4FBBD /* Scene */,
 				A7A9D82025F5F10500C4FBBD /* ViewModel */,
 				A7A9D81F25F5F0FE00C4FBBD /* ViewController */,

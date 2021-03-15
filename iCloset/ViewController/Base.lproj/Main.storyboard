@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jda-xj-tdo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247.82608695652175" y="0.6696428571428571"/>
+            <point key="canvasLocation" x="307" y="-103"/>
         </scene>
         <!--Join View Controller-->
         <scene sceneID="XcM-gP-EDR">
@@ -153,6 +153,13 @@
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yew-av-ocY">
+                                        <rect key="frame" x="294" y="34" width="20" height="20.5"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="2vc-9J-pH1"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -164,11 +171,14 @@
                                     <constraint firstItem="MF5-Yx-EcV" firstAttribute="top" secondItem="xsZ-Sq-2PM" secondAttribute="top" constant="25" id="GKn-rL-vd9"/>
                                     <constraint firstAttribute="trailing" secondItem="MF5-Yx-EcV" secondAttribute="trailing" constant="15" id="GP7-MC-LMW"/>
                                     <constraint firstItem="MF5-Yx-EcV" firstAttribute="leading" secondItem="xsZ-Sq-2PM" secondAttribute="leading" constant="15" id="KTm-KO-wSm"/>
+                                    <constraint firstItem="yew-av-ocY" firstAttribute="bottom" secondItem="MF5-Yx-EcV" secondAttribute="bottom" constant="-7" id="NDn-B1-OvW"/>
                                     <constraint firstItem="s6H-82-qLW" firstAttribute="bottom" secondItem="MF5-Yx-EcV" secondAttribute="bottom" constant="-7" id="Sfg-4i-1ED"/>
                                     <constraint firstItem="g1Q-EO-goH" firstAttribute="leading" secondItem="xsZ-Sq-2PM" secondAttribute="leading" constant="15" id="ZnE-Mf-9td"/>
                                     <constraint firstItem="5aD-9a-mhp" firstAttribute="leading" secondItem="xsZ-Sq-2PM" secondAttribute="leading" constant="15" id="dmy-gR-5LO"/>
+                                    <constraint firstItem="yew-av-ocY" firstAttribute="top" secondItem="MF5-Yx-EcV" secondAttribute="top" constant="7" id="eh7-cw-bWL"/>
                                     <constraint firstItem="g1Q-EO-goH" firstAttribute="top" secondItem="MF5-Yx-EcV" secondAttribute="bottom" constant="20" id="hkL-eh-JOc"/>
                                     <constraint firstAttribute="trailing" secondItem="g1Q-EO-goH" secondAttribute="trailing" constant="15" id="qES-fs-oXK"/>
+                                    <constraint firstItem="s6H-82-qLW" firstAttribute="leading" secondItem="yew-av-ocY" secondAttribute="trailing" constant="1" id="tRf-QX-S7r"/>
                                     <constraint firstAttribute="trailing" secondItem="5aD-9a-mhp" secondAttribute="trailing" constant="15" id="wWY-ht-4Ko"/>
                                     <constraint firstItem="s6H-82-qLW" firstAttribute="top" secondItem="MF5-Yx-EcV" secondAttribute="top" constant="7" id="xVa-l4-7ML"/>
                                     <constraint firstItem="9Yt-a7-tkS" firstAttribute="top" secondItem="g1Q-EO-goH" secondAttribute="bottom" constant="20" id="yoE-1p-4aM"/>
@@ -213,6 +223,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkImage" destination="yew-av-ocY" id="7Ke-sE-Z7X"/>
                         <outlet property="confirmButton" destination="m58-To-9c0" id="THn-Q1-dzc"/>
                         <outlet property="joinPanel" destination="xsZ-Sq-2PM" id="w3w-ZF-Z4U"/>
                         <outlet property="userEmail" destination="5aD-9a-mhp" id="ixh-fF-hrH"/>
@@ -264,7 +275,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p22-aB-ByI">
                                         <rect key="frame" x="5" y="125" width="344" height="30"/>
                                         <color key="backgroundColor" red="0.89296662810000005" green="0.80189102889999997" blue="0.65880018470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="확인">
+                                        <state key="normal" title="로그인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -346,6 +357,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="closet" width="256" height="256"/>
         <image name="제목 없음-2" width="100" height="25"/>
         <systemColor name="labelColor">
@@ -353,6 +365,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

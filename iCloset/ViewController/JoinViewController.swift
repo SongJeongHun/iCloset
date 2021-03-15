@@ -11,6 +11,7 @@ import RxSwift
 class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureRecognizerDelegate {
     var viewModel:IntroViewModel!
 //    @IBOutlet weak var confirmComment:UILabel!
+    @IBOutlet weak var checkImage:UIImageView!
     @IBOutlet weak var confirmButton:UIButton!
     @IBOutlet weak var joinPanel:UIView!
     @IBOutlet weak var userID:UITextField!
@@ -133,6 +134,7 @@ class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureR
                             let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
                             alertController.addAction(ok)
                             self.present(alertController,animated: true,completion: nil)
+                            self.checkImage.isHidden = false
                             self.userIDValidationCheckButton.titleLabel?.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                             self.userValidationList[4] = true
                             self.userID.isEnabled = false
@@ -152,6 +154,7 @@ class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureR
             .disposed(by: rx.disposeBag)
     }
     func setUI(){
+        checkImage.isHidden = true
         userIDValidationCheckButton.layer.cornerRadius = 5.0
         confirmButton.layer.cornerRadius = 5.0
         joinPanel.layer.cornerRadius = 5.0

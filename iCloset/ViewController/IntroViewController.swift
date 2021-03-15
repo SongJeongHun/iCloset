@@ -18,12 +18,28 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
     @IBOutlet weak var socialLogin:UIButton!
     @IBOutlet weak var userID:UITextField!
     @IBOutlet weak var userPassword:UITextField!
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         setUI()
         super.viewDidLoad()
     }
     func bindViewModel() {
         joinButton.rx.action = viewModel.joinAction()
+        loginButton.rx.tap
+            .throttle(.milliseconds(4000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{ _ in
+                guard let userID = self.userID.text else { return }
+                guard let userPassword = self.userPassword.text else { return }
+                self.viewModel.userStorage.login(userID: userID, userPassword: userPassword)
+                    .subscribe(onCompleted:{
+                        print("성공")
+                    }) { error in
+                        let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                        alertController.addAction(ok)
+                        self.present(alertController, animated: true, completion:  nil)
+                    }
+            })
+            .disposed(by: rx.disposeBag)
     }
     func setUI(){
         //Set CornerRadius
@@ -37,6 +53,8 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
         loginPanel.layer.shadowOffset = CGSize(width: 2, height: 3)
         loginPanel.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         loginPanel.layer.shadowOpacity = 0.2
+        //other
+        userPassword.isSecureTextEntry = true
     }
 }
 
