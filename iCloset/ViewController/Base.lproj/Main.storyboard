@@ -245,29 +245,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t2-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="G49-nO-4fU">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGA-eV-rUV">
                                 <rect key="frame" x="321" y="60" width="87" height="30"/>
                                 <state key="normal" title="getPixelData"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RGD-cz-KAh">
+                                <rect key="frame" x="20" y="431" width="374" height="336"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t1-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="G49-nO-4fU">
+                                <rect key="frame" x="20" y="54" width="374" height="331"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rig-jG-nIk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RGD-cz-KAh" firstAttribute="leading" secondItem="Rig-jG-nIk" secondAttribute="leading" constant="20" id="NOt-hZ-xdN"/>
                             <constraint firstItem="Rig-jG-nIk" firstAttribute="trailing" secondItem="sGA-eV-rUV" secondAttribute="trailing" constant="6" id="Row-t1-WMM"/>
-                            <constraint firstItem="G49-nO-4fU" firstAttribute="top" secondItem="Rig-jG-nIk" secondAttribute="top" constant="20" id="WVb-vC-dOi"/>
-                            <constraint firstItem="Rig-jG-nIk" firstAttribute="bottom" secondItem="G49-nO-4fU" secondAttribute="bottom" constant="20" id="lRd-Wk-wmh"/>
+                            <constraint firstItem="G49-nO-4fU" firstAttribute="top" secondItem="Rig-jG-nIk" secondAttribute="top" constant="10" id="WVb-vC-dOi"/>
+                            <constraint firstItem="RGD-cz-KAh" firstAttribute="height" secondItem="G49-nO-4fU" secondAttribute="height" multiplier="1.01511" id="Xch-Rv-efw"/>
+                            <constraint firstItem="RGD-cz-KAh" firstAttribute="width" secondItem="G49-nO-4fU" secondAttribute="width" id="chK-0s-3M2"/>
+                            <constraint firstItem="Rig-jG-nIk" firstAttribute="trailing" secondItem="RGD-cz-KAh" secondAttribute="trailing" constant="20" id="hKH-XP-8Ew"/>
+                            <constraint firstItem="Rig-jG-nIk" firstAttribute="bottom" secondItem="G49-nO-4fU" secondAttribute="bottom" constant="477" id="lRd-Wk-wmh"/>
                             <constraint firstItem="Rig-jG-nIk" firstAttribute="trailing" secondItem="G49-nO-4fU" secondAttribute="trailing" constant="20" id="t7l-Y9-peD"/>
                             <constraint firstItem="G49-nO-4fU" firstAttribute="leading" secondItem="Rig-jG-nIk" secondAttribute="leading" constant="20" id="teq-Kp-2dL"/>
+                            <constraint firstItem="Rig-jG-nIk" firstAttribute="bottom" secondItem="RGD-cz-KAh" secondAttribute="bottom" constant="95" id="wBM-Gl-5X7"/>
                             <constraint firstItem="sGA-eV-rUV" firstAttribute="top" secondItem="gPv-sb-6LH" secondAttribute="top" constant="60" id="xjH-KY-0GR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="getPixelButton" destination="sGA-eV-rUV" id="HdI-ph-OsM"/>
                         <outlet property="imageView" destination="G49-nO-4fU" id="l46-eX-Xo2"/>
+                        <outlet property="reulstView" destination="RGD-cz-KAh" id="Ynr-84-5Cm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXx-Ur-qFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -446,7 +455,7 @@
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="closet" width="256" height="256"/>
-        <image name="t2-removebg-preview" width="433" height="577"/>
+        <image name="t1-removebg-preview" width="433" height="577"/>
         <image name="제목 없음-2" width="100" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
