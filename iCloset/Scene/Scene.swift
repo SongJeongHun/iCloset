@@ -11,6 +11,7 @@ enum Scene{
     case test(TestViewModel)
     case intro(IntroViewModel)
     case join(IntroViewModel)
+    case resize
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -28,6 +29,9 @@ extension Scene{
             guard var joinVC = storyboard.instantiateViewController(identifier: "Join") as? JoinViewController else { fatalError() }
             joinVC.bind(viewModel: viewModel)
             return joinVC
+        case .resize:
+            guard let resizeVC = storyboard.instantiateViewController(identifier: "Resize") as? ResizeViewController else { fatalError() }
+            return resizeVC
         }
     }
 }

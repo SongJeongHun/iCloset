@@ -17,5 +17,6 @@ target 'iCloset' do
   pod 'RxFirebase/Storage'
   pod 'Alamofire'
   pod 'RxAlamofire'
+  pod 'lottie-ios'
 
 end

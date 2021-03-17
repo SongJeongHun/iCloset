@@ -14,6 +14,10 @@ class TestViewModel{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()
+    func test(img:UIImage) -> UIImage{
+        
+        return UIImage()
+    }
 }
 extension TestViewModel{
     func uploading(source:Data){
@@ -29,6 +33,7 @@ extension TestViewModel{
             ])
         .responseJSON {json in
             if let imageData = json.data{
+                print(imageData)
                 guard let img = UIImage(data: imageData) else {
                     self.resultError.onNext(ConvertFail.fail)
                     return 

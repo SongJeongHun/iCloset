@@ -15,6 +15,14 @@ class IntroViewModel:ViewModeltype{
             return self.sceneCoordinator.transition(to: joinScene, using: .modal, animated: true).asObservable().map { _ in }
         }
     }
+    func loginSuccessAction() -> CocoaAction{
+        return CocoaAction{ _ in
+//            let testVM = TestViewModel()
+//            let testScene = Scene.test(testVM)
+            let resizeScene = Scene.resize
+            return self.sceneCoordinator.transition(to: resizeScene, using: .root, animated: true).asObservable().map { _ in }
+        }
+    }
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

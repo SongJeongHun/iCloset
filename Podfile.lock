@@ -69,6 +69,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.2.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -107,6 +108,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase
   - FSCalendar
+  - lottie-ios
   - "NSObject+Rx"
   - RxAlamofire
   - RxCocoa
@@ -132,6 +134,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - "NSObject+Rx"
     - PromisesObjC
@@ -160,6 +163,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
@@ -172,6 +176,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 515dc1522abc4218b4f03b10d8fb14a88e5be8b4
+PODFILE CHECKSUM: 3fc8e13184c7d72745a195ec3406011fca80397f
 
 COCOAPODS: 1.9.3

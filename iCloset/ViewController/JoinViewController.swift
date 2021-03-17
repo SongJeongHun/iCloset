@@ -8,8 +8,10 @@ import UIKit
 import NSObject_Rx
 import RxCocoa
 import RxSwift
+import Lottie
 class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureRecognizerDelegate {
     var viewModel:IntroViewModel!
+    let clothAnimationView = AnimationView(name: "clothes")
 //    @IBOutlet weak var confirmComment:UILabel!
     @IBOutlet weak var checkImage:UIImageView!
     @IBOutlet weak var confirmButton:UIButton!
@@ -98,7 +100,6 @@ class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureR
             .disposed(by: rx.disposeBag)
         userValidation
             .subscribe(onNext:{valid in
-                print(valid)
                 if !valid.contains(false){
                     self.confirmButton.backgroundColor = #colorLiteral(red: 0.8157966137, green: 0.7181168199, blue: 0.5808442235, alpha: 1)
                     self.confirmButton.isEnabled = true
@@ -177,6 +178,7 @@ class JoinViewController: UIViewController,ViewControllerBindableType,UIGestureR
         joinPanel.layer.shadowOffset = CGSize(width: 2, height: 3)
         joinPanel.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         joinPanel.layer.shadowOpacity = 0.2
+        //Lottie Animation
     }
 }
 extension JoinViewController{

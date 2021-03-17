@@ -12,6 +12,8 @@
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
 		A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */; };
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
+		A750F5EA25FF2DB3003E6FC4 /* clothes.json in Resources */ = {isa = PBXBuildFile; fileRef = A750F5E925FF2DB3003E6FC4 /* clothes.json */; };
+		A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762CE292601D14200D34AAD /* ResizeViewController.swift */; };
 		A7843CD325FDD0CE004443A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7843CD225FDD0CE004443A0 /* User.swift */; };
 		A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */; };
 		A79602E325F5F65100686D69 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E225F5F65100686D69 /* TestViewModel.swift */; };
@@ -36,6 +38,8 @@
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		A750F5E925FF2DB3003E6FC4 /* clothes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clothes.json; sourceTree = "<group>"; };
+		A762CE292601D14200D34AAD /* ResizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeViewController.swift; sourceTree = "<group>"; };
 		A7843CD225FDD0CE004443A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBindableType.swift; sourceTree = "<group>"; };
 		A79602E225F5F65100686D69 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
@@ -92,8 +96,17 @@
 			children = (
 				A79602E825F5F7D400686D69 /* TestViewController.swift */,
 				A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */,
+				A762CE292601D14200D34AAD /* ResizeViewController.swift */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		A750F5E825FF2DA6003E6FC4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A750F5E925FF2DB3003E6FC4 /* clothes.json */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		A76C503C25FF257F00009139 /* UserStorage */ = {
@@ -169,6 +182,7 @@
 		A7F9013225F0CFA2007DB73A /* iCloset */ = {
 			isa = PBXGroup;
 			children = (
+				A750F5E825FF2DA6003E6FC4 /* Source */,
 				A7A9D82125F5F10A00C4FBBD /* Scene */,
 				A7A9D82025F5F10500C4FBBD /* ViewModel */,
 				A7A9D81F25F5F0FE00C4FBBD /* ViewController */,
@@ -240,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A750F5EA25FF2DB3003E6FC4 /* clothes.json in Resources */,
 				A7F9014025F0CFA3007DB73A /* LaunchScreen.storyboard in Resources */,
 				A7F9013D25F0CFA3007DB73A /* Assets.xcassets in Resources */,
 				A7F9013B25F0CFA2007DB73A /* Main.storyboard in Resources */,
@@ -296,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
 				A79602E925F5F7D400686D69 /* TestViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
 				A7203A1325F78537005E1269 /* TestViewControllerExtension.swift in Sources */,

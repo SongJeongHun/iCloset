@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 import Action
 class IntroViewController: UIViewController,ViewControllerBindableType{
     var viewModel: IntroViewModel!
@@ -31,7 +32,7 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
                 guard let userPassword = self.userPassword.text else { return }
                 self.viewModel.userStorage.login(userID: userID, userPassword: userPassword)
                     .subscribe(onCompleted:{
-                        print("성공")
+                        self.viewModel.loginSuccessAction().execute()
                     }) { error in
                         let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
                         let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
