@@ -11,6 +11,7 @@ enum Scene{
     case test(TestViewModel)
     case intro(IntroViewModel)
     case join(IntroViewModel)
+//    case main
     case resize
 }
 extension Scene{

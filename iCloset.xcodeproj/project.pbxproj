@@ -91,6 +91,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A7360AA9260470D90047D77A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */,
+				A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A7360AAA260470E40047D77A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		A7504E9125FB56260042D6D6 /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +137,12 @@
 		A7A9D81F25F5F0FE00C4FBBD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A7360AAA260470E40047D77A /* Main */,
+				A7360AA9260470D90047D77A /* Login */,
 				A7504E9125FB56260042D6D6 /* test */,
 				A7F9013925F0CFA2007DB73A /* Main.storyboard */,
 				A7F9013E25F0CFA3007DB73A /* LaunchScreen.storyboard */,
 				A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */,
-				A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */,
-				A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
