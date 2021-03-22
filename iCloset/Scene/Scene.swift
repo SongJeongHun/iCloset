@@ -11,7 +11,7 @@ enum Scene{
     case test(TestViewModel)
     case intro(IntroViewModel)
     case join(IntroViewModel)
-//    case main
+    case closet(ClosetViewModel)
     case resize
 }
 extension Scene{
@@ -33,6 +33,14 @@ extension Scene{
         case .resize:
             guard let resizeVC = storyboard.instantiateViewController(identifier: "Resize") as? ResizeViewController else { fatalError() }
             return resizeVC
+        case .closet(let viewModel):
+            guard let mainTVC = storyboard.instantiateViewController(identifier: "MainTab") as? UITabBarController else { fatalError() }
+            guard let firstVC = mainTVC.children.first else { fatalError() }
+            guard let closetNav = mainTVC.children.last as? UINavigationController else { fatalError() }
+            guard var closetVC = closetNav.children.first as? ClosetViewController else { fatalError() }
+            closetVC.bind(viewModel: viewModel)
+            return mainTVC
+
         }
     }
 }

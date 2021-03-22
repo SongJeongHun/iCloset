@@ -15,12 +15,11 @@ class IntroViewModel:ViewModeltype{
             return self.sceneCoordinator.transition(to: joinScene, using: .modal, animated: true).asObservable().map { _ in }
         }
     }
-    func loginSuccessAction() -> CocoaAction{
+    func loginSuccessAction(_ userID:String) -> CocoaAction{
         return CocoaAction{ _ in
-//            let testVM = TestViewModel()
-//            let testScene = Scene.test(testVM)
-            let resizeScene = Scene.resize
-            return self.sceneCoordinator.transition(to: resizeScene, using: .root, animated: true).asObservable().map { _ in }
+            let closetVM = ClosetViewModel(sceneCoordinator: self.sceneCoordinator, userID: userID)
+            let closetScene = Scene.closet(closetVM)
+            return self.sceneCoordinator.transition(to: closetScene, using: .root, animated: true).asObservable().map { _ in }
         }
     }
     func isValidEmail(testStr:String) -> Bool {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
 		A7203A1325F78537005E1269 /* TestViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */; };
+		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
+		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
 		A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */; };
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
 		A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewControllerExtension.swift; sourceTree = "<group>"; };
+		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
+		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		A7360AAA260470E40047D77A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				A79602E225F5F65100686D69 /* TestViewModel.swift */,
 				A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */,
 				A7504E8E25FB53310042D6D6 /* ViewModelType.swift */,
+				A729F403260869F200BABAE1 /* ClosetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,6 +339,8 @@
 				A7203A1325F78537005E1269 /* TestViewControllerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
 				A7843CD325FDD0CE004443A0 /* User.swift in Sources */,
+				A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */,
+				A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */,
 				A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */,
 				A79602E625F5F65900686D69 /* Scene.swift in Sources */,
 				A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */,

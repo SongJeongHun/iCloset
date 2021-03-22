@@ -6,8 +6,8 @@
 //
 import Foundation
 class ViewModeltype{
-    let userID:String
-    let sceneCoordinator:Coordinator
+    var userID:String
+    var sceneCoordinator:Coordinator
     init(sceneCoordinator:Coordinator,userID:String){
         self.userID = userID
         self.sceneCoordinator = sceneCoordinator

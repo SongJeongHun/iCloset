@@ -32,7 +32,8 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
                 guard let userPassword = self.userPassword.text else { return }
                 self.viewModel.userStorage.login(userID: userID, userPassword: userPassword)
                     .subscribe(onCompleted:{
-                        self.viewModel.loginSuccessAction().execute()
+                        guard let userID = self.userID.text else { return }
+                        self.viewModel.loginSuccessAction(userID).execute()
                     }) { error in
                         let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
                         let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
