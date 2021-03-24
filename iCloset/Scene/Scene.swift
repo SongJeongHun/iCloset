@@ -35,9 +35,14 @@ extension Scene{
             return resizeVC
         case .closet(let viewModel):
             guard let mainTVC = storyboard.instantiateViewController(identifier: "MainTab") as? UITabBarController else { fatalError() }
-            guard let firstVC = mainTVC.children.first else { fatalError() }
+            guard let historyNav = mainTVC.children.first as? UINavigationController else { fatalError() }
+            guard let historyVC = historyNav.children.first as? UIViewController else { fatalError() }
             guard let closetNav = mainTVC.children.last as? UINavigationController else { fatalError() }
             guard var closetVC = closetNav.children.first as? ClosetViewController else { fatalError() }
+            for vc in closetVC.children{
+                var clothItemVC = vc as! ClothItemViewController
+                clothItemVC.bind(viewModel: viewModel)
+            }
             closetVC.bind(viewModel: viewModel)
             return mainTVC
 

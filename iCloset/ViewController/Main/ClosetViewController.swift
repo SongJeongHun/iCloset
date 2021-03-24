@@ -9,6 +9,7 @@ import UIKit
 
 class ClosetViewController: UIViewController,ViewControllerBindableType {
     var viewModel:ClosetViewModel!
+    @IBOutlet weak var topView:UIView!
     @IBOutlet weak var addClothView:UIView!
     @IBOutlet weak var addClothButton:UIButton!
     @IBOutlet weak var addPresetView:UIView!
@@ -20,8 +21,8 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
         setUI()
     }
     func setUI(){
+        topView.layer.cornerRadius = 7.0
         addClothView.layer.cornerRadius = 5.0
         addPresetView.layer.cornerRadius = 5.0
-        
     }
 }

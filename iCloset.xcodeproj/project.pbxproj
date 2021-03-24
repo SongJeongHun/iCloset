@@ -16,6 +16,7 @@
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
 		A750F5EA25FF2DB3003E6FC4 /* clothes.json in Resources */ = {isa = PBXBuildFile; fileRef = A750F5E925FF2DB3003E6FC4 /* clothes.json */; };
 		A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762CE292601D14200D34AAD /* ResizeViewController.swift */; };
+		A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771BA30260B03F400652540 /* ClothItemViewController.swift */; };
 		A7843CD325FDD0CE004443A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7843CD225FDD0CE004443A0 /* User.swift */; };
 		A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */; };
 		A79602E325F5F65100686D69 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E225F5F65100686D69 /* TestViewModel.swift */; };
@@ -44,6 +45,7 @@
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		A750F5E925FF2DB3003E6FC4 /* clothes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clothes.json; sourceTree = "<group>"; };
 		A762CE292601D14200D34AAD /* ResizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeViewController.swift; sourceTree = "<group>"; };
+		A771BA30260B03F400652540 /* ClothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothItemViewController.swift; sourceTree = "<group>"; };
 		A7843CD225FDD0CE004443A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBindableType.swift; sourceTree = "<group>"; };
 		A79602E225F5F65100686D69 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
+				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */,
 				A79602E325F5F65100686D69 /* TestViewModel.swift in Sources */,
 				A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */,
+				A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */,
 				A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */,
 				A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */,
 				A7FE12D725FC99E3007EF1B8 /* UserStorage.swift in Sources */,

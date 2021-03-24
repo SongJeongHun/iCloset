@@ -46,6 +46,15 @@ class Coordinator:SceneCoordinatorType{
             subject.onCompleted()
         case .root:
             currentVC = target
+            if currentVC.children.count != 0{
+                let superVC = currentVC.children.last?.children.first as! ClosetViewController
+                let currentVM = superVC.viewModel!
+                for vc in superVC.children{
+                    print(vc)
+                    var childVC = vc as? ClothItemViewController
+                    childVC?.bind(viewModel: currentVM)
+                }
+            }
             window.rootViewController = target
             subject.onCompleted()
         }
