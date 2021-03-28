@@ -32,25 +32,39 @@ class Coordinator:SceneCoordinatorType{
             currentVC = target.sceneViewController
             subject.onCompleted()
         case .push:
-            guard let nav = currentVC.children.first as? UINavigationController else{
-                subject.onError(TransitionError.navigationMissing)
-                break
-            }
-            nav.rx.willShow
-                .subscribe{[unowned self]evt in
-                    self.currentVC = currentVC.parent!.parent!
+            if type(of: target) ==  AddClothViewController.self {
+                print("nav -> \(currentVC)")
+                guard let nav = currentVC.children.last as? UINavigationController else{
+                    print("Error occur : currentVC = \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
                 }
-                .disposed(by: bag)
-            nav.pushViewController(target, animated: animated)
-            currentVC = target.sceneViewController
-            subject.onCompleted()
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
+            }else{
+                guard let nav = currentVC.children.first as? UINavigationController else{
+                    print("Error occur : currentVC = \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
+                }
+                nav.rx.willShow
+                    .subscribe{[unowned self]evt in
+                        self.currentVC = currentVC.parent!.parent!
+                    }
+                    .disposed(by: bag)
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
+            }
+        
         case .root:
             currentVC = target
+            //Embed VM binding
             if currentVC.children.count != 0{
                 let superVC = currentVC.children.last?.children.first as! ClosetViewController
                 let currentVM = superVC.viewModel!
                 for vc in superVC.children{
-                    print(vc)
                     var childVC = vc as? ClothItemViewController
                     childVC?.bind(viewModel: currentVM)
                 }

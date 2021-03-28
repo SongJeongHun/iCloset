@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
-		A7203A1325F78537005E1269 /* TestViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */; };
+		A7203A1325F78537005E1269 /* AddClothViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */; };
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
@@ -19,9 +19,9 @@
 		A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771BA30260B03F400652540 /* ClothItemViewController.swift */; };
 		A7843CD325FDD0CE004443A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7843CD225FDD0CE004443A0 /* User.swift */; };
 		A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */; };
-		A79602E325F5F65100686D69 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E225F5F65100686D69 /* TestViewModel.swift */; };
+		A79602E325F5F65100686D69 /* AddClothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E225F5F65100686D69 /* AddClothViewModel.swift */; };
 		A79602E625F5F65900686D69 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E525F5F65900686D69 /* Scene.swift */; };
-		A79602E925F5F7D400686D69 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E825F5F7D400686D69 /* TestViewController.swift */; };
+		A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602E825F5F7D400686D69 /* AddClothViewController.swift */; };
 		A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602ED25F5F88200686D69 /* Coordinator.swift */; };
 		A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */; };
 		A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F325F5F8A100686D69 /* TransitionStyle.swift */; };
@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
-		A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewControllerExtension.swift; sourceTree = "<group>"; };
+		A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerExtension.swift; sourceTree = "<group>"; };
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -48,9 +48,9 @@
 		A771BA30260B03F400652540 /* ClothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothItemViewController.swift; sourceTree = "<group>"; };
 		A7843CD225FDD0CE004443A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A79602DF25F5F30300686D69 /* ViewControllerBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBindableType.swift; sourceTree = "<group>"; };
-		A79602E225F5F65100686D69 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
+		A79602E225F5F65100686D69 /* AddClothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewModel.swift; sourceTree = "<group>"; };
 		A79602E525F5F65900686D69 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		A79602E825F5F7D400686D69 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		A79602E825F5F7D400686D69 /* AddClothViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewController.swift; sourceTree = "<group>"; };
 		A79602ED25F5F88200686D69 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		A79602F325F5F8A100686D69 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
@@ -109,6 +109,8 @@
 		A7360AAA260470E40047D77A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
+				A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */,
 				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
 				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
 			);
@@ -118,8 +120,6 @@
 		A7504E9125FB56260042D6D6 /* test */ = {
 			isa = PBXGroup;
 			children = (
-				A79602E825F5F7D400686D69 /* TestViewController.swift */,
-				A7203A1225F78537005E1269 /* TestViewControllerExtension.swift */,
 				A762CE292601D14200D34AAD /* ResizeViewController.swift */,
 			);
 			path = test;
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A7A9D82225F5F10E00C4FBBD /* Storage */,
-				A79602E225F5F65100686D69 /* TestViewModel.swift */,
+				A79602E225F5F65100686D69 /* AddClothViewModel.swift */,
 				A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */,
 				A7504E8E25FB53310042D6D6 /* ViewModelType.swift */,
 				A729F403260869F200BABAE1 /* ClosetViewModel.swift */,
@@ -337,9 +337,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
-				A79602E925F5F7D400686D69 /* TestViewController.swift in Sources */,
+				A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
-				A7203A1325F78537005E1269 /* TestViewControllerExtension.swift in Sources */,
+				A7203A1325F78537005E1269 /* AddClothViewControllerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
 				A7843CD325FDD0CE004443A0 /* User.swift in Sources */,
 				A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */,
@@ -350,7 +350,7 @@
 				A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */,
 				A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */,
 				A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */,
-				A79602E325F5F65100686D69 /* TestViewModel.swift in Sources */,
+				A79602E325F5F65100686D69 /* AddClothViewModel.swift in Sources */,
 				A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */,
 				A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */,
 				A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */,

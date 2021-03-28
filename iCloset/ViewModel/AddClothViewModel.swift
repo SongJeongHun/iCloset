@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//   AddClothViewModel.swift
 //  iCloset
 //
 //  Created by 송정훈 on 2021/03/08.
@@ -10,16 +10,12 @@ import Action
 import RxSwift
 import RxAlamofire
 import Alamofire
-class TestViewModel{
+class AddClothViewModel:ViewModeltype{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()
-    func test(img:UIImage) -> UIImage{
-        
-        return UIImage()
-    }
 }
-extension TestViewModel{
+extension AddClothViewModel{
     func uploading(source:Data){
         AF.upload(multipartFormData: { builder in
                 builder.append(

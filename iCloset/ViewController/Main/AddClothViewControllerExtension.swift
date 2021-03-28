@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 import NSObject_Rx
-extension TestViewController:UIImagePickerControllerDelegate{
+extension AddClothViewController:UIImagePickerControllerDelegate{
     func addThumbnailAlert(){
         let alert = UIAlertController(title: "불러오기", message: "", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "앨범", style: .default) { action in

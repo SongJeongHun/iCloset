@@ -8,7 +8,7 @@ import UIKit
 import Foundation
 
 enum Scene{
-    case test(TestViewModel)
+    case addCloth(AddClothViewModel)
     case intro(IntroViewModel)
     case join(IntroViewModel)
     case closet(ClosetViewModel)
@@ -18,10 +18,10 @@ extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
         switch self{
-        case .test(let viewModel):
-            guard var loginVC = storyboard.instantiateViewController(identifier: "APITest") as? TestViewController else { fatalError() }
-            loginVC.bind(viewModel: viewModel)
-            return loginVC
+        case .addCloth(let viewModel):
+            guard var addClothVC = storyboard.instantiateViewController(identifier: "AddCloth") as? AddClothViewController else { fatalError() }
+            addClothVC.bind(viewModel: viewModel)
+            return addClothVC
         case .intro(let viewModel):
             guard var introVC = storyboard.instantiateViewController(identifier: "Intro") as? IntroViewController else { fatalError() }
             introVC.bind(viewModel: viewModel)
