@@ -28,6 +28,8 @@ extension AddClothViewController:UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             self.inputImage.image = userImage
+            removeBGButton.isHidden = false
+            saveButton.isHidden = false
         }
         dismiss(animated: true, completion: nil)
     }
