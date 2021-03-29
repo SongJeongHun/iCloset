@@ -71,10 +71,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-eC-hfD">
-                                <rect key="frame" x="0.0" y="141" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="133" width="414" height="680"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pwl-Hg-9ZG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="680"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                     </imageView>
                                 </subviews>
@@ -98,7 +98,7 @@
                             <constraint firstItem="AES-GK-1eA" firstAttribute="leading" secondItem="ZQ8-wa-iYz" secondAttribute="leading" id="Caw-xy-s7E"/>
                             <constraint firstItem="AES-GK-1eA" firstAttribute="top" secondItem="ZQ8-wa-iYz" secondAttribute="top" id="Cig-Qr-J27"/>
                             <constraint firstItem="LHP-eC-hfD" firstAttribute="trailing" secondItem="ZQ8-wa-iYz" secondAttribute="trailing" id="dPp-qK-Gbz"/>
-                            <constraint firstItem="LHP-eC-hfD" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="bottom" constant="8" symbolic="YES" id="hoG-Ju-2a7"/>
+                            <constraint firstItem="LHP-eC-hfD" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="bottom" id="hoG-Ju-2a7"/>
                             <constraint firstItem="ZQ8-wa-iYz" firstAttribute="bottom" secondItem="LHP-eC-hfD" secondAttribute="bottom" id="lxf-X1-qwU"/>
                             <constraint firstItem="AES-GK-1eA" firstAttribute="trailing" secondItem="ZQ8-wa-iYz" secondAttribute="trailing" id="te6-6i-x6Y"/>
                         </constraints>
@@ -403,7 +403,7 @@
         <scene sceneID="7NP-Gq-wWQ">
             <objects>
                 <tabBarController storyboardIdentifier="MainTab" title="MainTab" id="h1d-xx-018" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1VS-gS-gld">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="1VS-gS-gld">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.94805628060000002" green="0.87210947279999995" blue="0.76076710219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -457,7 +457,9 @@
         <scene sceneID="0yv-6M-Ogz">
             <objects>
                 <navigationController storyboardIdentifier="Closet" id="CHQ-dd-geJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="내 옷장" image="figure.stand" catalog="system" id="ss1-pR-nFs"/>
+                    <tabBarItem key="tabBarItem" title="내 옷장" image="archivebox.fill" catalog="system" id="ss1-pR-nFs">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lSh-cS-xU6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -518,10 +520,10 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="openCloset" translatesAutoresizingMaskIntoConstraints="NO" id="NUv-VO-VGh">
                                                         <rect key="frame" x="0.0" y="0.0" width="126" height="85"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgC-Aq-3YP">
-                                                        <rect key="frame" x="10" y="100" width="106" height="60"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgC-Aq-3YP">
+                                                        <rect key="frame" x="10" y="102" width="106" height="60"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="프리셋 저장">
+                                                        <state key="normal" title="프리셋">
                                                             <color key="titleColor" red="0.96360462899999999" green="0.8723099232" blue="0.74507778879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                     </button>
@@ -1007,12 +1009,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archivebox.fill" catalog="system" width="128" height="106"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.up" catalog="system" width="128" height="72"/>
-        <image name="closet" width="256" height="256"/>
+        <image name="closet" width="170.66667175292969" height="170.66667175292969"/>
         <image name="download" width="512" height="512"/>
-        <image name="figure.stand" catalog="system" width="77" height="128"/>
         <image name="image-removebg-preview-2" width="339" height="735"/>
         <image name="image-removebg-preview-3" width="339" height="735"/>
         <image name="openCloset" width="900" height="512"/>

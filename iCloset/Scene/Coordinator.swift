@@ -33,7 +33,6 @@ class Coordinator:SceneCoordinatorType{
             subject.onCompleted()
         case .push:
             if type(of: target) ==  AddClothViewController.self {
-                print("nav -> \(currentVC)")
                 guard let nav = currentVC.children.last as? UINavigationController else{
                     print("Error occur : currentVC = \(currentVC)")
                     subject.onError(TransitionError.navigationMissing)

@@ -30,16 +30,23 @@ class IntroViewController: UIViewController,ViewControllerBindableType{
             .subscribe(onNext:{ _ in
                 guard let userID = self.userID.text else { return }
                 guard let userPassword = self.userPassword.text else { return }
-                self.viewModel.userStorage.login(userID: userID, userPassword: userPassword)
-                    .subscribe(onCompleted:{
-                        guard let userID = self.userID.text else { return }
-                        self.viewModel.loginSuccessAction(userID).execute()
-                    }) { error in
-                        let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-                        alertController.addAction(ok)
-                        self.present(alertController, animated: true, completion:  nil)
-                    }
+                if userID == "" || userPassword == ""{
+                    let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    alertController.addAction(ok)
+                    self.present(alertController, animated: true, completion:  nil)
+                }else{
+                    self.viewModel.userStorage.login(userID: userID, userPassword: userPassword)
+                        .subscribe(onCompleted:{
+                            guard let userID = self.userID.text else { return }
+                            self.viewModel.loginSuccessAction(userID).execute()
+                        }) { error in
+                            let alertController = UIAlertController(title: "알림", message: "로그인 실패", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                            alertController.addAction(ok)
+                            self.present(alertController, animated: true, completion:  nil)
+                        }
+                }
             })
             .disposed(by: rx.disposeBag)
     }

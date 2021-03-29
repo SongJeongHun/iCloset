@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import NSObject_Rx
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
+    var clothName:String = "이름 없는 옷"
     var viewModel:AddClothViewModel!
     let picker = UIImagePickerController()
     @IBOutlet weak var scrollView:UIScrollView!
@@ -30,11 +31,48 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     func bindViewModel() {
         imagePickButton.rx.tap
             .observeOn(MainScheduler.instance)
-            .throttle(.milliseconds(5000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 self.addThumbnailAlert()
             })
             .disposed(by: rx.disposeBag)
+        modifyButton.rx.tap
+            .observeOn(MainScheduler.instance)
+            .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{ _ in
+                let alert = UIAlertController(title: "알림", message: "옷 이름 변경", preferredStyle: .alert)
+                alert.addTextField(configurationHandler: nil)
+                let ok = UIAlertAction(title: "확인", style: .default, handler: {ok in
+                    guard let valStr = alert.textFields?[0].text else { return }
+                    self.clothName = valStr
+                    if valStr == "" { self.clothName = "이름 없는 옷"}
+                    self.navigationItem.rx.title.onNext(self.clothName)
+                })
+                let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+        removeBGButton.rx.tap
+            .subscribeOn(MainScheduler.instance)
+            .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{
+                let removeAlert = UIAlertController(title: "자르기", message: "방법을 선택 하세요", preferredStyle: .actionSheet)
+                let auto = UIAlertAction(title: "자동", style: .default) { action in
+                    
+                }
+                let manual = UIAlertAction(title: "수동", style: .default) { action in
+                    
+                }
+                let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
+                removeAlert.addAction(auto)
+                removeAlert.addAction(manual)
+                removeAlert.addAction(cancel)
+                self.present(removeAlert, animated: true, completion: nil)
+            })
+            .disposed(by: rx.disposeBag)
+            
     }
     func setUI(){
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
@@ -42,7 +80,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         imagePickButton.layer.cornerRadius = 5.0
         removeBGButton.layer.cornerRadius = 5.0
         saveButton.layer.cornerRadius = 5.0
-        navigationItem.title = "이름 없는 옷"
+        navigationItem.rx.title.onNext(clothName)
     }
 }
 extension AddClothViewController{
