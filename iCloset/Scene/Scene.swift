@@ -13,6 +13,7 @@ enum Scene{
     case join(IntroViewModel)
     case closet(ClosetViewModel)
     case resize
+    case selectCloset(ClosetViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -45,7 +46,11 @@ extension Scene{
             }
             closetVC.bind(viewModel: viewModel)
             return mainTVC
-
+        case .selectCloset(let viewModel):
+            guard let closetSideNav = storyboard.instantiateViewController(identifier: "ClosetSideNav") as? ClosetSideMenuNavigation else { fatalError() }
+            guard var selectClosetVC = closetSideNav.children.first! as? SelectClosetViewController else { fatalError() }
+            selectClosetVC.bind(viewModel: viewModel)
+            return closetSideNav
         }
     }
 }

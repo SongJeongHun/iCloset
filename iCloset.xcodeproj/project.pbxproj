@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
-		A7203A1325F78537005E1269 /* AddClothViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */; };
+		A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */; };
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
@@ -26,6 +26,9 @@
 		A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */; };
 		A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F325F5F8A100686D69 /* TransitionStyle.swift */; };
 		A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */; };
+		A7B3E77F2611BDF0005ECFF3 /* ApplicationNotiCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */; };
+		A7B3E7842611C259005ECFF3 /* ClosetSideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */; };
+		A7B3E7872611C771005ECFF3 /* SelectClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */; };
 		A7D17FE325F8FD6F004DF194 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7D17FE225F8FD6F004DF194 /* GoogleService-Info.plist */; };
 		A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9013325F0CFA2007DB73A /* AppDelegate.swift */; };
 		A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9013525F0CFA2007DB73A /* SceneDelegate.swift */; };
@@ -37,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
-		A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerExtension.swift; sourceTree = "<group>"; };
+		A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerPickerExtension.swift; sourceTree = "<group>"; };
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -55,6 +58,9 @@
 		A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		A79602F325F5F8A100686D69 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNotiCenter.swift; sourceTree = "<group>"; };
+		A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetSideMenuNavigation.swift; sourceTree = "<group>"; };
+		A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetViewController.swift; sourceTree = "<group>"; };
 		A7D17FE225F8FD6F004DF194 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7F9013025F0CFA2007DB73A /* iCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F9013325F0CFA2007DB73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,8 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
-				A7203A1225F78537005E1269 /* AddClothViewControllerExtension.swift */,
+				A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */,
 				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
+				A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */,
+				A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */,
 				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
 			);
 			path = Main;
@@ -145,6 +153,7 @@
 		A7A9D81F25F5F0FE00C4FBBD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A7B3E77D2611BDD7005ECFF3 /* Notification */,
 				A7360AAA260470E40047D77A /* Main */,
 				A7360AA9260470D90047D77A /* Login */,
 				A7504E9125FB56260042D6D6 /* test */,
@@ -184,6 +193,14 @@
 				A76C503C25FF257F00009139 /* UserStorage */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		A7B3E77D2611BDD7005ECFF3 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		A7F9012725F0CFA2007DB73A = {
@@ -339,8 +356,9 @@
 				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
 				A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
-				A7203A1325F78537005E1269 /* AddClothViewControllerExtension.swift in Sources */,
+				A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
+				A7B3E77F2611BDF0005ECFF3 /* ApplicationNotiCenter.swift in Sources */,
 				A7843CD325FDD0CE004443A0 /* User.swift in Sources */,
 				A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */,
 				A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */,
@@ -352,8 +370,10 @@
 				A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */,
 				A79602E325F5F65100686D69 /* AddClothViewModel.swift in Sources */,
 				A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */,
+				A7B3E7842611C259005ECFF3 /* ClosetSideMenuNavigation.swift in Sources */,
 				A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */,
 				A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */,
+				A7B3E7872611C771005ECFF3 /* SelectClosetViewController.swift in Sources */,
 				A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */,
 				A7FE12D725FC99E3007EF1B8 /* UserStorage.swift in Sources */,
 			);

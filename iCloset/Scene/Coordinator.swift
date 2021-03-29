@@ -56,7 +56,6 @@ class Coordinator:SceneCoordinatorType{
                 currentVC = target.sceneViewController
                 subject.onCompleted()
             }
-        
         case .root:
             currentVC = target
             //Embed VM binding
