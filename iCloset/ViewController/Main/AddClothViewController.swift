@@ -69,6 +69,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                     self.viewModel.uploading(source: jpgData)
                     //removeStart
                     self.inputImage.image = nil
+                    self.progressView.isHidden = false
                     self.loadingAnimationView.isHidden = false
                     self.loadingAnimationView.play()
                 }
@@ -92,12 +93,14 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                 self.inputImage.image = self.viewModel.cropToBounds(image: resultImage, width: Double(maxP.x - minP.x), height: Double(maxP.y - minP.y),x:CGFloat(minP.x),y:CGFloat(minP.y))
                 self.loadingAnimationView.stop()
                 self.loadingAnimationView.isHidden = true
+                self.progressView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
         viewModel.resultError
             .subscribe(onNext:{ err in
                 print(err)
                 self.loadingAnimationView.stop()
+                self.progressView.isHidden = true
                 self.loadingAnimationView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
@@ -122,14 +125,4 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         scrollView.addSubview(loadingAnimationView)
         scrollView.addSubview(progressView)
     }
-}
-extension AddClothViewController{
-    func zoomSetting(){
-        scrollView.maximumZoomScale = 1.0
-        scrollView.minimumZoomScale = 0.1
-    }
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return inputImage
-    }
-    
 }

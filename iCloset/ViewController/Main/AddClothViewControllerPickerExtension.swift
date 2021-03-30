@@ -33,4 +33,12 @@ extension AddClothViewController:UIImagePickerControllerDelegate{
         }
         dismiss(animated: true, completion: nil)
     }
+    func zoomSetting(){
+        scrollView.maximumZoomScale = 1.0
+        scrollView.minimumZoomScale = 0.1
+    }
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return inputImage
+    }
+    
 }
