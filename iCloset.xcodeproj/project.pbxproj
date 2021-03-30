@@ -115,6 +115,7 @@
 		A7360AAA260470E40047D77A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A750F5E925FF2DB3003E6FC4 /* clothes.json */,
 				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
 				A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */,
 				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
@@ -136,7 +137,6 @@
 		A750F5E825FF2DA6003E6FC4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A750F5E925FF2DB3003E6FC4 /* clothes.json */,
 			);
 			path = Source;
 			sourceTree = "<group>";

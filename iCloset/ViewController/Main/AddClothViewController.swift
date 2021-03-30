@@ -11,6 +11,7 @@ import Lottie
 import NSObject_Rx
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
     let loadingAnimationView = AnimationView(name: "clothes")
+    let progressView = UIProgressView()
     var clothName:String = "이름 없는 옷"
     var viewModel:AddClothViewModel!
     let picker = UIImagePickerController()
@@ -22,6 +23,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var saveButton:UIButton!
     override func viewDidLoad() {
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        prepareLoading()
         setUI()
         zoomSetting()
         picker.delegate = self
@@ -63,11 +65,12 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .subscribe(onNext:{
                 let removeAlert = UIAlertController(title: "자르기", message: "방법을 선택 하세요", preferredStyle: .actionSheet)
                 let auto = UIAlertAction(title: "자동", style: .default){ action in
-                    print("Button pressed")
                     guard let jpgData = self.inputImage.image?.jpegData(compressionQuality: 0.8) else { return }
                     self.viewModel.uploading(source: jpgData)
-                    print("API ")
                     //removeStart
+                    self.inputImage.image = nil
+                    self.loadingAnimationView.isHidden = false
+                    self.loadingAnimationView.play()
                 }
                 let manual = UIAlertAction(title: "수동", style: .default) { action in
                 }
@@ -87,11 +90,15 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                 let minP = CGPoint(x: xArr.min()!, y: yArr.min()!)
                 let maxP = CGPoint(x: xArr.max()!, y: yArr.max()!)
                 self.inputImage.image = self.viewModel.cropToBounds(image: resultImage, width: Double(maxP.x - minP.x), height: Double(maxP.y - minP.y),x:CGFloat(minP.x),y:CGFloat(minP.y))
+                self.loadingAnimationView.stop()
+                self.loadingAnimationView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
         viewModel.resultError
             .subscribe(onNext:{ err in
                 print(err)
+                self.loadingAnimationView.stop()
+                self.loadingAnimationView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
     }
@@ -103,6 +110,17 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         removeBGButton.layer.cornerRadius = 5.0
         saveButton.layer.cornerRadius = 5.0
         navigationItem.rx.title.onNext(clothName)
+    }
+    func prepareLoading(){
+        loadingAnimationView.frame = CGRect(x: 0, y: 0, width: Int(inputImage.frame.width), height: Int(inputImage.frame.height) / 2)
+        progressView.frame = CGRect(x:0,y:Int(inputImage.frame.height) / 2,width:Int(inputImage.frame.width),height: 80)
+        progressView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        loadingAnimationView.contentMode = .scaleAspectFit
+        loadingAnimationView.loopMode = .loop
+        loadingAnimationView.isHidden = true
+        progressView.isHidden = true
+        scrollView.addSubview(loadingAnimationView)
+        scrollView.addSubview(progressView)
     }
 }
 extension AddClothViewController{

@@ -10,10 +10,6 @@ import Action
 import RxSwift
 import RxAlamofire
 import Alamofire
-//    override func viewDidLoad() {
-       
-//        super.viewDidLoad()
-//    }
 class AddClothViewModel:ViewModeltype{
     private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
     var resultImage = PublishSubject<UIImage>()
