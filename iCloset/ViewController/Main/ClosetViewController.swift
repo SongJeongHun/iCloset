@@ -26,17 +26,22 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
         selectClosetButton.rx.action = viewModel.popSideMenu()
         addClothButton.rx.action = viewModel.addClothAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
-            .observeOn(MainScheduler.instance)
+            .subscribeOn(MainScheduler.instance)
             .subscribe(onNext:{_ in
                 self.shadowView.isHidden = true
             })
             .disposed(by: rx.disposeBag)
         ApplicationNotiCenter.sideMenuWillAppear.addObserver()
-            .observeOn(MainScheduler.instance)
+            .subscribeOn(MainScheduler.instance)
             .subscribe(onNext:{ [unowned self] menuWidth in
                 guard let width = menuWidth as? CGFloat else { return }
                 self.shadowView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - width, height: UIScreen.main.bounds.height)
                 self.shadowView.isHidden = false
+            })
+            .disposed(by: rx.disposeBag)
+        viewModel.currentCloset
+            .subscribe(onNext:{ [unowned self] closet in
+                self.navigationItem.title = closet
             })
             .disposed(by: rx.disposeBag)
     }

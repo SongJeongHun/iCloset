@@ -7,8 +7,10 @@
 
 import UIKit
 import RxSwift
+import Lottie
 import NSObject_Rx
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
+    let loadingAnimationView = AnimationView(name: "clothes")
     var clothName:String = "이름 없는 옷"
     var viewModel:AddClothViewModel!
     let picker = UIImagePickerController()
@@ -19,10 +21,11 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var modifyButton:UIButton!
     @IBOutlet weak var saveButton:UIButton!
     override func viewDidLoad() {
-        super.viewDidLoad()
+        scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         setUI()
         zoomSetting()
         picker.delegate = self
+        super.viewDidLoad()
     }
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.sceneCoordinator.currentVC = self.parent!.parent!
@@ -59,11 +62,14 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
                 let removeAlert = UIAlertController(title: "자르기", message: "방법을 선택 하세요", preferredStyle: .actionSheet)
-                let auto = UIAlertAction(title: "자동", style: .default) { action in
-                    
+                let auto = UIAlertAction(title: "자동", style: .default){ action in
+                    print("Button pressed")
+                    guard let jpgData = self.inputImage.image?.jpegData(compressionQuality: 0.8) else { return }
+                    self.viewModel.uploading(source: jpgData)
+                    print("API ")
+                    //removeStart
                 }
                 let manual = UIAlertAction(title: "수동", style: .default) { action in
-                    
                 }
                 let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
                 removeAlert.addAction(auto)
@@ -72,10 +78,26 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                 self.present(removeAlert, animated: true, completion: nil)
             })
             .disposed(by: rx.disposeBag)
-            
+        viewModel.resultImage
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] resultImage in
+                let array = self.viewModel.findColors(resultImage)
+                let xArr = array[0]
+                let yArr = array[1]
+                let minP = CGPoint(x: xArr.min()!, y: yArr.min()!)
+                let maxP = CGPoint(x: xArr.max()!, y: yArr.max()!)
+                self.inputImage.image = self.viewModel.cropToBounds(image: resultImage, width: Double(maxP.x - minP.x), height: Double(maxP.y - minP.y),x:CGFloat(minP.x),y:CGFloat(minP.y))
+            })
+            .disposed(by: rx.disposeBag)
+        viewModel.resultError
+            .subscribe(onNext:{ err in
+                print(err)
+            })
+            .disposed(by: rx.disposeBag)
     }
     func setUI(){
-        scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        inputImage.layer.borderColor = #colorLiteral(red: 0.5791992545, green: 0.5121335983, blue: 0.4514948726, alpha: 1)
+        inputImage.layer.borderWidth = 1.0
         modifyButton.layer.cornerRadius = 5.0
         imagePickButton.layer.cornerRadius = 5.0
         removeBGButton.layer.cornerRadius = 5.0
