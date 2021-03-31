@@ -11,6 +11,9 @@ import Lottie
 import NSObject_Rx
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
     let loadingAnimationView = AnimationView(name: "clothes")
+    let cropView = UIView()
+    var cropTopButton = UIButton()
+    var cropBottomButton = UIButton()
     let progressView = UIProgressView()
     var clothName:String = "이름 없는 옷"
     var viewModel:AddClothViewModel!
@@ -21,6 +24,20 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var removeBGButton:UIButton!
     @IBOutlet weak var modifyButton:UIButton!
     @IBOutlet weak var saveButton:UIButton!
+    @IBAction func buttonMoved(_ sender:UIButton,forEvent:UIEvent){
+        guard let touches = forEvent.touches(for: sender) else { return }
+        if let touch = touches.first{
+            let point = touch.location(in: sender.superview)
+            let currentCropViewFrame = self.cropView.frame
+            let currentCropTopButton = self.cropTopButton.frame
+            let xGap = currentCropViewFrame.minX - point.x
+            let yGap = currentCropViewFrame.minY - point.y
+            if point.y < self.cropView.frame.maxY && point.x < self.cropView.frame.maxX{
+                self.cropTopButton.frame = CGRect(x: point.x - 10, y: point.y - 10, width: currentCropTopButton.width, height: currentCropTopButton.height)
+                self.cropView.frame = CGRect(x: point.x, y: point.y, width: currentCropViewFrame.width + xGap, height: currentCropViewFrame.height + yGap)
+            }
+        }
+    }
     override func viewDidLoad() {
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         prepareLoading()
@@ -28,6 +45,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         zoomSetting()
         picker.delegate = self
         super.viewDidLoad()
+        print("frame -> \(cropView.frame)")
     }
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.sceneCoordinator.currentVC = self.parent!.parent!
@@ -74,6 +92,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                     self.loadingAnimationView.play()
                 }
                 let manual = UIAlertAction(title: "수동", style: .default) { action in
+                    self.prepareManualCropping()
                 }
                 let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
                 removeAlert.addAction(auto)
@@ -94,14 +113,20 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                 self.loadingAnimationView.stop()
                 self.loadingAnimationView.isHidden = true
                 self.progressView.isHidden = true
+                self.progressView.progress = 0.0
             })
             .disposed(by: rx.disposeBag)
         viewModel.resultError
-            .subscribe(onNext:{ err in
-                print(err)
+            .subscribe(onNext:{ [unowned self] err in
                 self.loadingAnimationView.stop()
                 self.progressView.isHidden = true
+                self.progressView.progress = 0.0
                 self.loadingAnimationView.isHidden = true
+            })
+            .disposed(by: rx.disposeBag)
+        viewModel.removeProgress
+            .subscribe(onNext:{ [unowned self] progress in
+                self.progressView.setProgress(Float(progress), animated: true)
             })
             .disposed(by: rx.disposeBag)
     }
@@ -118,6 +143,8 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         loadingAnimationView.frame = CGRect(x: 0, y: 0, width: Int(inputImage.frame.width), height: Int(inputImage.frame.height) / 2)
         progressView.frame = CGRect(x:0,y:Int(inputImage.frame.height) / 2,width:Int(inputImage.frame.width),height: 80)
         progressView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        progressView.tintColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        progressView.progress = 0.0
         loadingAnimationView.contentMode = .scaleAspectFit
         loadingAnimationView.loopMode = .loop
         loadingAnimationView.isHidden = true

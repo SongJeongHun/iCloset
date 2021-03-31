@@ -680,15 +680,28 @@
                                                         <constraint firstAttribute="width" constant="120" id="gEC-FX-Zxg"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMGL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-2N-ubR">
+                                                    <rect key="frame" x="8" y="130" width="104" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="w1G-aO-IUX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mNE-2N-ubR" secondAttribute="trailing" constant="8" id="5rt-Pt-rzK"/>
                                                 <constraint firstAttribute="bottom" secondItem="7Vj-vS-wcz" secondAttribute="bottom" constant="-5" id="SLO-15-zBc"/>
                                                 <constraint firstItem="7Vj-vS-wcz" firstAttribute="top" secondItem="9Fw-HU-8hg" secondAttribute="top" constant="-5" id="ePb-2f-IgS"/>
                                                 <constraint firstItem="7Vj-vS-wcz" firstAttribute="leading" secondItem="9Fw-HU-8hg" secondAttribute="leading" constant="5" id="iaK-Lq-KGv"/>
+                                                <constraint firstItem="mNE-2N-ubR" firstAttribute="leading" secondItem="9Fw-HU-8hg" secondAttribute="leading" constant="8" id="pPm-0u-dZf"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Vj-vS-wcz" secondAttribute="trailing" constant="-5" id="qtI-P4-cqD"/>
+                                                <constraint firstAttribute="bottom" secondItem="mNE-2N-ubR" secondAttribute="bottom" constant="5" id="xNa-55-iYE"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="clothBrand" destination="mNE-2N-ubR" id="ZbW-lp-dLb"/>
                                             <outlet property="thumbnail" destination="7Vj-vS-wcz" id="Tyx-Lw-EEm"/>
                                         </connections>
                                     </collectionViewCell>
@@ -723,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiv-yt-0pD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3426" y="1968"/>
+            <point key="canvasLocation" x="3424.6376811594205" y="1967.4107142857142"/>
         </scene>
         <!--코디 히스토리-->
         <scene sceneID="mfg-Sb-F8s">
@@ -837,15 +850,28 @@
                                                         <constraint firstAttribute="width" constant="120" id="xSX-e2-BwK"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSILENCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZP-9F-yqC">
+                                                    <rect key="frame" x="8" y="130" width="104" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="14I-im-7xn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aku-dW-jDI" firstAttribute="top" secondItem="lMi-Jg-Agd" secondAttribute="top" constant="-5" id="98q-vR-j6u"/>
                                                 <constraint firstAttribute="trailing" secondItem="aku-dW-jDI" secondAttribute="trailing" constant="-5" id="Af8-zA-yw2"/>
                                                 <constraint firstItem="aku-dW-jDI" firstAttribute="leading" secondItem="lMi-Jg-Agd" secondAttribute="leading" constant="5" id="Awy-8r-d5Q"/>
+                                                <constraint firstItem="nZP-9F-yqC" firstAttribute="leading" secondItem="lMi-Jg-Agd" secondAttribute="leading" constant="8" id="eLY-xR-1HR"/>
+                                                <constraint firstAttribute="bottom" secondItem="nZP-9F-yqC" secondAttribute="bottom" constant="5" id="gzm-BI-lVy"/>
                                                 <constraint firstAttribute="bottom" secondItem="aku-dW-jDI" secondAttribute="bottom" constant="-5" id="jJf-xd-gqy"/>
+                                                <constraint firstAttribute="trailing" secondItem="nZP-9F-yqC" secondAttribute="trailing" constant="8" id="nhm-Wr-gJH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="clothBrand" destination="nZP-9F-yqC" id="zcd-sR-qu8"/>
                                             <outlet property="thumbnail" destination="aku-dW-jDI" id="9C8-40-lpa"/>
                                         </connections>
                                     </collectionViewCell>
@@ -920,15 +946,28 @@
                                                         <constraint firstAttribute="height" constant="160" id="W96-uD-u0L"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GUCCI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-eM-4G9">
+                                                    <rect key="frame" x="8" y="130" width="104" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="Xu1-GO-5mr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="h5L-eM-4G9" secondAttribute="trailing" constant="8" id="6hm-a2-VZf"/>
                                                 <constraint firstItem="xWc-NA-FQ4" firstAttribute="leading" secondItem="C6c-Qx-NQo" secondAttribute="leading" constant="5" id="8fK-dK-Gkb"/>
+                                                <constraint firstAttribute="bottom" secondItem="h5L-eM-4G9" secondAttribute="bottom" constant="5" id="L8I-pg-uEo"/>
                                                 <constraint firstAttribute="trailing" secondItem="xWc-NA-FQ4" secondAttribute="trailing" constant="-5" id="Pr2-x7-z8D"/>
                                                 <constraint firstAttribute="bottom" secondItem="xWc-NA-FQ4" secondAttribute="bottom" constant="-5" id="d1Z-CH-Xe6"/>
                                                 <constraint firstItem="xWc-NA-FQ4" firstAttribute="top" secondItem="C6c-Qx-NQo" secondAttribute="top" constant="-5" id="fOO-QL-LEk"/>
+                                                <constraint firstItem="h5L-eM-4G9" firstAttribute="leading" secondItem="C6c-Qx-NQo" secondAttribute="leading" constant="8" id="tp4-VE-XKX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="clothBrand" destination="h5L-eM-4G9" id="JRs-vV-1be"/>
                                             <outlet property="thumbnail" destination="xWc-NA-FQ4" id="NGx-Lt-l86"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1035,15 +1074,28 @@
                                                         <constraint firstAttribute="height" constant="160" id="l3v-CX-byW"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRADA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPy-g1-hQR">
+                                                    <rect key="frame" x="8" y="130" width="104" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="2SD-wX-WqJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="xPy-g1-hQR" firstAttribute="leading" secondItem="Gh2-Zr-VzV" secondAttribute="leading" constant="8" id="CQ2-3p-VUT"/>
+                                                <constraint firstAttribute="bottom" secondItem="xPy-g1-hQR" secondAttribute="bottom" constant="5" id="FUo-Uf-fS9"/>
                                                 <constraint firstItem="bKJ-3t-yaG" firstAttribute="leading" secondItem="Gh2-Zr-VzV" secondAttribute="leading" constant="5" id="XaD-6n-o46"/>
+                                                <constraint firstAttribute="trailing" secondItem="xPy-g1-hQR" secondAttribute="trailing" constant="8" id="gBT-QT-NR8"/>
                                                 <constraint firstAttribute="trailing" secondItem="bKJ-3t-yaG" secondAttribute="trailing" constant="-5" id="xx1-3i-K9h"/>
                                                 <constraint firstAttribute="bottom" secondItem="bKJ-3t-yaG" secondAttribute="bottom" constant="-5" id="ylN-hY-7R1"/>
                                                 <constraint firstItem="bKJ-3t-yaG" firstAttribute="top" secondItem="Gh2-Zr-VzV" secondAttribute="top" constant="-5" id="ziM-o9-3en"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="clothBrand" destination="xPy-g1-hQR" id="ucp-fz-uk1"/>
                                             <outlet property="thumbnail" destination="bKJ-3t-yaG" id="U4c-WD-6vI"/>
                                         </connections>
                                     </collectionViewCell>

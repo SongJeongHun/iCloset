@@ -11,9 +11,10 @@ import RxSwift
 import RxAlamofire
 import Alamofire
 class AddClothViewModel:ViewModeltype{
-    private let apiKey:String = "MHjvnaFJKZwjtHpbipfxYMhG"
+    private let apiKey:String = "BTypKBKYj18bq1QphqJrAqbn"
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()
+    var removeProgress = PublishSubject<Double>()
     func findColors(_ image: UIImage) -> [[Int]] {
         var xArray:[Int] = []
         var yArray:[Int] = []
@@ -55,6 +56,9 @@ extension AddClothViewModel{
             }, to: URL(string: "https://api.remove.bg/v1.0/removebg")!, method: .post, headers: [
                 "X-Api-Key": apiKey
             ])
+        .downloadProgress{progress in
+            self.removeProgress.onNext(progress.fractionCompleted)
+        }
         .responseJSON {json in
             if let imageData = json.data{
                 print(imageData)

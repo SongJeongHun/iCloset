@@ -11,6 +11,7 @@
 		A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */; };
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
+		A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
 		A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */; };
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
@@ -43,6 +44,7 @@
 		A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerPickerExtension.swift; sourceTree = "<group>"; };
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
+		A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerManualCropExtension.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				A750F5E925FF2DB3003E6FC4 /* clothes.json */,
 				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
 				A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */,
+				A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */,
 				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
 				A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */,
 				A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */,
@@ -356,6 +359,7 @@
 				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
 				A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
+				A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */,
 				A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
 				A7B3E77F2611BDF0005ECFF3 /* ApplicationNotiCenter.swift in Sources */,

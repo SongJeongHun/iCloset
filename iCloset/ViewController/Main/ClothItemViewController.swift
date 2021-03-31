@@ -31,6 +31,7 @@ class ClothItemViewController: UIViewController ,ViewControllerBindableType,UICo
 }
 class clothCell:UICollectionViewCell{
     @IBOutlet weak var thumbnail:UIImageView!
+    @IBOutlet weak var clothBrand:UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
