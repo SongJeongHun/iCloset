@@ -24,7 +24,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var removeBGButton:UIButton!
     @IBOutlet weak var modifyButton:UIButton!
     @IBOutlet weak var saveButton:UIButton!
-    @IBAction func buttonMoved(_ sender:UIButton,forEvent:UIEvent){
+    @IBAction func topButtonMoved(_ sender:UIButton,forEvent:UIEvent){
         guard let touches = forEvent.touches(for: sender) else { return }
         if let touch = touches.first{
             let point = touch.location(in: sender.superview)
@@ -35,6 +35,20 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             if point.y < self.cropView.frame.maxY && point.x < self.cropView.frame.maxX{
                 self.cropTopButton.frame = CGRect(x: point.x - 10, y: point.y - 10, width: currentCropTopButton.width, height: currentCropTopButton.height)
                 self.cropView.frame = CGRect(x: point.x, y: point.y, width: currentCropViewFrame.width + xGap, height: currentCropViewFrame.height + yGap)
+            }
+        }
+    }
+    @IBAction func bottomButtonMoved(_ sender:UIButton,forEvent:UIEvent){
+        guard let touches = forEvent.touches(for: sender) else { return }
+        if let touch = touches.first{
+            let point = touch.location(in: sender.superview)
+            let currentCropViewFrame = self.cropView.frame
+            let currentCropBottomButton = self.cropBottomButton.frame
+            let xGap = point.x - currentCropViewFrame.maxX
+            let yGap = point.y - currentCropViewFrame.maxY
+            if point.x > self.cropView.frame.minX && point.y > self.cropView.frame.minY{
+                self.cropBottomButton.frame = CGRect(x: point.x - 10, y: point.y - 10, width: currentCropBottomButton.width, height: currentCropBottomButton.height)
+                self.cropView.frame = CGRect(x: currentCropViewFrame.minX, y: currentCropViewFrame.minY, width: currentCropViewFrame.width + xGap, height: currentCropViewFrame.height + yGap)
             }
         }
     }
