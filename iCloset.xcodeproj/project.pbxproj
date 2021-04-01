@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
+		A70EC15A2615BC8A00604658 /* discard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70EC1592615BC8A00604658 /* discard.swift */; };
 		A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */; };
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
+		A70EC1592615BC8A00604658 /* discard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discard.swift; sourceTree = "<group>"; };
 		A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerPickerExtension.swift; sourceTree = "<group>"; };
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */,
 				A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */,
 				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
+				A70EC1592615BC8A00604658 /* discard.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
 				A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
+				A70EC15A2615BC8A00604658 /* discard.swift in Sources */,
 				A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */,
 				A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,

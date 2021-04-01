@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import Lottie
+import Mantis
 import NSObject_Rx
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
     let loadingAnimationView = AnimationView(name: "clothes")
@@ -22,44 +23,17 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var inputImage:UIImageView!
     @IBOutlet weak var imagePickButton:UIButton!
     @IBOutlet weak var removeBGButton:UIButton!
+    @IBOutlet weak var cutOKButton:UIButton!
     @IBOutlet weak var modifyButton:UIButton!
     @IBOutlet weak var saveButton:UIButton!
-    @IBAction func topButtonMoved(_ sender:UIButton,forEvent:UIEvent){
-        guard let touches = forEvent.touches(for: sender) else { return }
-        if let touch = touches.first{
-            let point = touch.location(in: sender.superview)
-            let currentCropViewFrame = self.cropView.frame
-            let currentCropTopButton = self.cropTopButton.frame
-            let xGap = currentCropViewFrame.minX - point.x
-            let yGap = currentCropViewFrame.minY - point.y
-            if point.y < self.cropView.frame.maxY && point.x < self.cropView.frame.maxX{
-                self.cropTopButton.frame = CGRect(x: point.x - 10, y: point.y - 10, width: currentCropTopButton.width, height: currentCropTopButton.height)
-                self.cropView.frame = CGRect(x: point.x, y: point.y, width: currentCropViewFrame.width + xGap, height: currentCropViewFrame.height + yGap)
-            }
-        }
-    }
-    @IBAction func bottomButtonMoved(_ sender:UIButton,forEvent:UIEvent){
-        guard let touches = forEvent.touches(for: sender) else { return }
-        if let touch = touches.first{
-            let point = touch.location(in: sender.superview)
-            let currentCropViewFrame = self.cropView.frame
-            let currentCropBottomButton = self.cropBottomButton.frame
-            let xGap = point.x - currentCropViewFrame.maxX
-            let yGap = point.y - currentCropViewFrame.maxY
-            if point.x > self.cropView.frame.minX && point.y > self.cropView.frame.minY{
-                self.cropBottomButton.frame = CGRect(x: point.x - 10, y: point.y - 10, width: currentCropBottomButton.width, height: currentCropBottomButton.height)
-                self.cropView.frame = CGRect(x: currentCropViewFrame.minX, y: currentCropViewFrame.minY, width: currentCropViewFrame.width + xGap, height: currentCropViewFrame.height + yGap)
-            }
-        }
-    }
     override func viewDidLoad() {
+        inputImage.isUserInteractionEnabled = true
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         prepareLoading()
         setUI()
         zoomSetting()
         picker.delegate = self
         super.viewDidLoad()
-        print("frame -> \(cropView.frame)")
     }
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.sceneCoordinator.currentVC = self.parent!.parent!
@@ -106,7 +80,8 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                     self.loadingAnimationView.play()
                 }
                 let manual = UIAlertAction(title: "수동", style: .default) { action in
-                    self.prepareManualCropping()
+                    guard let image = self.inputImage?.image else { return }
+                    self.prepareManualCropping(image: image)
                 }
                 let cancel = UIAlertAction(title: "취소", style: .default, handler:nil)
                 removeAlert.addAction(auto)
@@ -145,6 +120,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .disposed(by: rx.disposeBag)
     }
     func setUI(){
+        self.cutOKButton.isHidden = true
         inputImage.layer.borderColor = #colorLiteral(red: 0.5791992545, green: 0.5121335983, blue: 0.4514948726, alpha: 1)
         inputImage.layer.borderWidth = 1.0
         modifyButton.layer.cornerRadius = 5.0

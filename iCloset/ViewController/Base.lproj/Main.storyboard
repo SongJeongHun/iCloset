@@ -52,13 +52,28 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="knj-Yk-USx">
+                                        <rect key="frame" x="8" y="5" width="32" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="h9D-C3-X2j"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="tig-w0-8wO"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="OK">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="u4w-u3-XA1" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="top" constant="10" id="1TB-De-Yfo"/>
+                                    <constraint firstAttribute="bottom" secondItem="knj-Yk-USx" secondAttribute="bottom" constant="5" id="4Ex-T9-I3o"/>
                                     <constraint firstAttribute="height" constant="45" id="4i4-Ir-b0o"/>
                                     <constraint firstAttribute="bottom" secondItem="GK9-3B-Whv" secondAttribute="bottom" constant="5" id="9tE-zN-Eph"/>
+                                    <constraint firstItem="knj-Yk-USx" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="top" constant="5" id="Fbw-ka-MIm"/>
                                     <constraint firstAttribute="bottom" secondItem="u4w-u3-XA1" secondAttribute="bottom" constant="10" id="G2S-33-dwk"/>
+                                    <constraint firstItem="knj-Yk-USx" firstAttribute="leading" secondItem="AES-GK-1eA" secondAttribute="leading" constant="8" id="Gd6-PS-Nfi"/>
                                     <constraint firstAttribute="bottom" secondItem="UVn-AG-nxb" secondAttribute="bottom" constant="10" id="Q9l-W2-RNM"/>
                                     <constraint firstItem="GK9-3B-Whv" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="top" constant="5" id="Rtc-HS-Mte"/>
                                     <constraint firstItem="kIv-tM-N7O" firstAttribute="top" secondItem="AES-GK-1eA" secondAttribute="top" constant="10" id="SJc-wN-5Ld"/>
@@ -106,6 +121,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cutOKButton" destination="knj-Yk-USx" id="okF-cM-uG0"/>
                         <outlet property="imagePickButton" destination="GK9-3B-Whv" id="WVJ-kw-E4l"/>
                         <outlet property="inputImage" destination="pwl-Hg-9ZG" id="fwG-EA-tUA"/>
                         <outlet property="modifyButton" destination="u4w-u3-XA1" id="NWI-qj-8EU"/>

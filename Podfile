@@ -18,5 +18,6 @@ target 'iCloset' do
   pod 'Alamofire'
   pod 'RxAlamofire'
   pod 'lottie-ios'
+  pod 'Mantis'
 
 end

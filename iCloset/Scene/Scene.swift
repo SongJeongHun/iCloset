@@ -6,6 +6,7 @@
 //
 import UIKit
 import Foundation
+import Mantis
 
 enum Scene{
     case addCloth(AddClothViewModel)
@@ -14,6 +15,7 @@ enum Scene{
     case closet(ClosetViewModel)
     case resize
     case selectCloset(ClosetViewModel)
+    case cropping(UIImage)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -51,6 +53,9 @@ extension Scene{
             guard var selectClosetVC = closetSideNav.children.first! as? SelectClosetViewController else { fatalError() }
             selectClosetVC.bind(viewModel: viewModel)
             return closetSideNav
+        case .cropping(let image):
+            let cropViewController = Mantis.cropViewController(image:image)
+            return cropViewController
         }
     }
 }
