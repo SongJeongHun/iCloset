@@ -11,6 +11,7 @@ import RxSwift
 import RxAlamofire
 import Alamofire
 class AddClothViewModel:ViewModeltype{
+    lazy var storage = ImageStorage(userID: userID)
     private let apiKey:String = "BTypKBKYj18bq1QphqJrAqbn"
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()

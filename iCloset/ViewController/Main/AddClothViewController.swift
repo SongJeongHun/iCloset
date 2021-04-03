@@ -40,6 +40,14 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
         super.viewWillDisappear(animated)
     }
     func bindViewModel() {
+        saveButton.rx.tap
+            .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{ _ in
+                guard let img = self.inputImage?.image else { return }
+                let cloth = Cloth(name: "test", brand: "test", category: clothCategory.top)
+                self.viewModel.storage.saveThumbnail(cloth: cloth, img: img)
+            })
+            .disposed(by: rx.disposeBag)
         imagePickButton.rx.tap
             .observeOn(MainScheduler.instance)
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
@@ -48,7 +56,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             })
             .disposed(by: rx.disposeBag)
         modifyButton.rx.tap
-            .observeOn(MainScheduler.instance)
+            .subscribeOn(MainScheduler.instance)
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 let alert = UIAlertController(title: "알림", message: "옷 이름 변경", preferredStyle: .alert)

@@ -23,7 +23,6 @@ extension AddClothViewController:CropViewControllerDelegate {
     }
     func prepareManualCropping(image:UIImage){
         let cropViewController = Mantis.cropViewController(image:image)
-        let cropScene = Scene.cropping(image)
         cropViewController.delegate = self
         self.present(cropViewController,animated: true){
             cropViewController.presentationController?.presentedView?.gestureRecognizers?[0].isEnabled = false

@@ -13,6 +13,8 @@
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
 		A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */; };
+		A740A01B261839BA007448FA /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740A01A261839BA007448FA /* Cloth.swift */; };
+		A740A02026183A44007448FA /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740A01F26183A44007448FA /* ImageStorage.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
 		A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */; };
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
@@ -47,6 +49,8 @@
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerManualCropExtension.swift; sourceTree = "<group>"; };
+		A740A01A261839BA007448FA /* Cloth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
+		A740A01F26183A44007448FA /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -132,6 +136,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		A740A019261839A2007448FA /* ImageStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A740A01A261839BA007448FA /* Cloth.swift */,
+				A740A01F26183A44007448FA /* ImageStorage.swift */,
+			);
+			path = ImageStorage;
+			sourceTree = "<group>";
+		};
 		A7504E9125FB56260042D6D6 /* test */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +209,7 @@
 		A7A9D82225F5F10E00C4FBBD /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A740A019261839A2007448FA /* ImageStorage */,
 				A76C503C25FF257F00009139 /* UserStorage */,
 			);
 			path = Storage;
@@ -375,6 +389,7 @@
 				A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */,
 				A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */,
 				A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */,
+				A740A02026183A44007448FA /* ImageStorage.swift in Sources */,
 				A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */,
 				A79602E325F5F65100686D69 /* AddClothViewModel.swift in Sources */,
 				A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */,
@@ -382,6 +397,7 @@
 				A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */,
 				A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */,
 				A7B3E7872611C771005ECFF3 /* SelectClosetViewController.swift in Sources */,
+				A740A01B261839BA007448FA /* Cloth.swift in Sources */,
 				A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */,
 				A7FE12D725FC99E3007EF1B8 /* UserStorage.swift in Sources */,
 			);
