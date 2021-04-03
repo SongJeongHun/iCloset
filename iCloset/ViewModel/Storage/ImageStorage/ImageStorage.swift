@@ -19,18 +19,16 @@ class ImageStorage{
     init (userID:String){
         self.userID = userID
     }
-    func saveThumbnail(cloth:Cloth,img:UIImage) -> Completable{
-        let subject = PublishSubject<Void>()
+    func saveThumbnail(cloth:Cloth,img:UIImage) -> Observable<Double>{
+        let subject = PublishSubject<Double>()
         var data = img.jpegData(compressionQuality: 0.8)!
-        let ref = storeRef.reference().child("users/\(userID)/\(cloth.category)").child("\(cloth.name)_img").rx
-            .putData(data)
-            .subscribe(onNext:{metadata in
-                subject.onCompleted()
-            }) { error in
-                subject.onError(error)
-            }
-            .disposed(by: bag)
-        return subject.ignoreElements()
+        let ref = storeRef.reference().child("users/\(userID)/\(cloth.category)").child("\(cloth.name)_img")
+        let uploadTask = ref.putData(data)
+        uploadTask.rx.observe(.progress)
+            .subscribe(onNext:{ snapshot in
+                subject.onNext(100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount))
+            })
+        return subject
     }
 //    func getThumbnail(cloth:Cloth) -> Observable<UIImage>{
 //        let subject = PublishSubject<UIImage>()

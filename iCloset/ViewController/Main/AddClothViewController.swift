@@ -46,6 +46,21 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
                 guard let img = self.inputImage?.image else { return }
                 let cloth = Cloth(name: "test", brand: "test", category: clothCategory.top)
                 self.viewModel.storage.saveThumbnail(cloth: cloth, img: img)
+                    .subscribe(onNext:{ [unowned self] progress in
+                        if progress == 100.0{
+                            self.progressView.isHidden = true
+                            self.loadingAnimationView.isHidden = true
+                            self.loadingAnimationView.stop()
+                            self.progressView.progress = 0.0
+                        }else{
+                            self.progressView.progress = Float(progress)
+                            self.inputImage.image = nil
+                            self.progressView.isHidden = false
+                            self.loadingAnimationView.isHidden = false
+                            self.loadingAnimationView.play()
+                        }
+                    })
+                    .disposed(by: self.rx.disposeBag)
             })
             .disposed(by: rx.disposeBag)
         imagePickButton.rx.tap
