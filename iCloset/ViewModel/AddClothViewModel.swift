@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import NSObject_Rx
 import Action
 import RxSwift
 import RxAlamofire
 import Alamofire
 class AddClothViewModel:ViewModeltype{
-    lazy var storage = ImageStorage(userID: userID)
+    lazy var storage = ImageStorage(userID: userID,closet: selectedCloset)
     private let apiKey:String = "BTypKBKYj18bq1QphqJrAqbn"
+    var selectedCloset:String = ""
     var resultImage = PublishSubject<UIImage>()
     var resultError = PublishSubject<ConvertFail>()
     var removeProgress = PublishSubject<Double>()
@@ -43,6 +45,21 @@ class AddClothViewModel:ViewModeltype{
         let imageRef = contextImage.cgImage!.cropping(to: rect)!
         let image = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
         return image
+    }
+    func createName(keys:[String],cloth:Cloth) -> Cloth{
+        var newName = cloth.name
+        var count = 0
+        print(keys)
+        while(true){
+            if keys.contains(newName){
+                count += 1
+                newName = "\(cloth.name)_\(count)"
+            }else{
+                break
+            }
+        }
+        if count == 0 { return cloth }
+        else { return Cloth(name: newName, brand: cloth.brand, category: cloth.category) }
     }
 }
 extension AddClothViewModel{

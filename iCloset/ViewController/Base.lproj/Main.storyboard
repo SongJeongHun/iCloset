@@ -21,28 +21,28 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-tM-N7O">
-                                        <rect key="frame" x="322" y="10" width="32" height="25"/>
+                                        <rect key="frame" x="326" y="10" width="35" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="TRs-7d-3o6"/>
+                                            <constraint firstAttribute="width" constant="35" id="TRs-7d-3o6"/>
                                         </constraints>
                                         <state key="normal" image="scissors"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-AG-nxb">
-                                        <rect key="frame" x="367" y="10" width="32" height="25"/>
+                                        <rect key="frame" x="374" y="10" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="dwR-XW-bNj"/>
+                                            <constraint firstAttribute="width" constant="25" id="dwR-XW-bNj"/>
                                         </constraints>
-                                        <state key="normal" image="download"/>
+                                        <state key="normal" image="diskette"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4w-u3-XA1">
-                                        <rect key="frame" x="282" y="10" width="32" height="25"/>
+                                        <rect key="frame" x="286" y="10" width="32" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="XFa-rr-oEJ"/>
                                         </constraints>
                                         <state key="normal" image="pencil"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK9-3B-Whv">
-                                        <rect key="frame" x="239" y="5" width="32" height="35"/>
+                                        <rect key="frame" x="243" y="5" width="32" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="1Ed-yL-A6g"/>
                                             <constraint firstAttribute="width" constant="32" id="PjU-dR-xqS"/>
@@ -1157,7 +1157,7 @@
         <image name="chevron.up" catalog="system" width="128" height="72"/>
         <image name="closet" width="170.66667175292969" height="170.66667175292969"/>
         <image name="diamond-ring" width="512" height="512"/>
-        <image name="download" width="512" height="512"/>
+        <image name="diskette" width="512" height="512"/>
         <image name="image-removebg-preview-2" width="339" height="735"/>
         <image name="image-removebg-preview-3" width="339" height="735"/>
         <image name="long-pants" width="512" height="512"/>

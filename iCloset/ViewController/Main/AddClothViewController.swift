@@ -44,21 +44,30 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 guard let img = self.inputImage?.image else { return }
-                let cloth = Cloth(name: "test", brand: "test", category: clothCategory.top)
-                self.viewModel.storage.saveThumbnail(cloth: cloth, img: img)
-                    .subscribe(onNext:{ [unowned self] progress in
-                        if progress == 100.0{
-                            self.progressView.isHidden = true
-                            self.loadingAnimationView.isHidden = true
-                            self.loadingAnimationView.stop()
-                            self.progressView.progress = 0.0
-                        }else{
-                            self.progressView.progress = Float(progress)
-                            self.inputImage.image = nil
-                            self.progressView.isHidden = false
-                            self.loadingAnimationView.isHidden = false
-                            self.loadingAnimationView.play()
-                        }
+                let cloth = Cloth(name: self.clothName, brand: "test", category: clothCategory.top)
+                self.viewModel.storage.clothNameValidationCheck(closet: self.viewModel.selectedCloset, cloth: cloth)
+                    .subscribe(onNext:{ [unowned self] validation in
+                        let validCloth = self.viewModel.createName(keys: validation,cloth:cloth)
+                        self.viewModel.storage.saveThumbnail(closet: self.viewModel.selectedCloset, cloth: validCloth, img: img)
+                            .subscribe(onNext:{ [unowned self] progress in
+                                if progress == 100.0 && !self.progressView.isHidden{
+                                    let alert = UIAlertController(title: "알림", message: "저장 완료!", preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                                    alert.addAction(ok)
+                                    self.present(alert, animated: true, completion: nil)
+                                    self.progressView.isHidden = true
+                                    self.loadingAnimationView.isHidden = true
+                                    self.loadingAnimationView.stop()
+                                    self.progressView.progress = 0.0
+                                }else if progress != 100{
+                                    self.progressView.progress = Float(progress)
+                                    self.inputImage.image = nil
+                                    self.progressView.isHidden = false
+                                    self.loadingAnimationView.isHidden = false
+                                    self.loadingAnimationView.play()
+                                }
+                            })
+                            .disposed(by: self.rx.disposeBag)
                     })
                     .disposed(by: self.rx.disposeBag)
             })

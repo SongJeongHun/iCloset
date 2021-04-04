@@ -18,6 +18,9 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
     @IBOutlet weak var addPresetButton:UIButton!
     @IBOutlet weak var selectClosetButton:UIBarButtonItem!
     override func viewDidLoad() {
+        viewModel.getCLoset()
+        viewModel.selectedCloset = "이름 없는 옷장"
+        viewModel.currentCloset.onNext(viewModel.selectedCloset)
         prepareShadowView()
         setUI()
         super.viewDidLoad()
@@ -40,8 +43,9 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
             })
             .disposed(by: rx.disposeBag)
         viewModel.currentCloset
-            .subscribe(onNext:{ [unowned self] closet in
-                self.navigationItem.title = closet
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext:{ [unowned self] closetName in
+                self.navigationItem.title = closetName
             })
             .disposed(by: rx.disposeBag)
     }
