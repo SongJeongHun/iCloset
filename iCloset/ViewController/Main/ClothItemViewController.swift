@@ -18,6 +18,7 @@ class ClothItemViewController: UIViewController ,ViewControllerBindableType,UICo
         super.viewDidLoad()
     }
     func bindViewModel() {
+        
         viewModel.dummyData
             .bind(to:collectionView.rx.items){collectionView,row,data in
                 let indexPath = IndexPath(row: row, section: 0)

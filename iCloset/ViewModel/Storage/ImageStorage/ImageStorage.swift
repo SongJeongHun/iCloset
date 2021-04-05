@@ -41,6 +41,18 @@ class ImageStorage{
             .subscribe { _ in }
             .disposed(by: bag)
     }
+    func getPath(closet:String,category:clothCategory) -> Observable<[String]> {
+        let subject = PublishSubject<[String]>()
+        ref.child("users").child(userID).child(closet).child("\(category)").rx
+            .observeSingleEvent(.value)
+            .subscribe(onSuccess:{ [unowned self] snap in
+                guard let data = snap.value! as? Dictionary<String,Any> else {
+                    return
+                }
+                subject.onNext(Array(data.keys))
+            })
+        return subject
+    }
     func saveThumbnail(closet:String,cloth:Cloth,img:UIImage) -> Observable<Double>{
         let subject = PublishSubject<Double>()
         var data = img.pngData()!
@@ -57,18 +69,16 @@ class ImageStorage{
             })
         return subject
     }
-    //    func getThumbnail(cloth:Cloth) -> Observable<UIImage>{
-    //        let subject = PublishSubject<UIImage>()
-    //        let ref = storeRef.reference(forURL: "gs://calendeck-e28b2.appspot.com/users/\(userID)/cardsThumbnail/\(card.title)_thumbnail").rx
-    //        ref.downloadURL()
-    //            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-    //            .subscribe(onNext:{url in
-    //                let data = try! Data(contentsOf: url)
-    //                subject.onNext(UIImage(data: data)!)
-    //            }) { error in
-    //                print(error)
-    //            }
-    //            .disposed(by: bag)
-    //        return subject
-    //    }
+    func getThumbnail(cloth:Cloth) -> Observable<[UIImage]>{
+        let subject = PublishSubject<[UIImage]>()
+        let ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(cloth.category)/\(cloth.name)").rx
+        ref.downloadURL()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .subscribe(onNext:{url in
+                let data = try! Data(contentsOf: url)
+                subject.onNext([UIImage(data: data)!])
+            })
+            .disposed(by: bag)
+        return subject
+    }
 }
