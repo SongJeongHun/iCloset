@@ -11,6 +11,8 @@ import RxCocoa
 
 class ClothItemViewController: UIViewController ,ViewControllerBindableType,UICollectionViewDelegate{
     var viewModel:ClosetViewModel!
+    var imgArr:[UIImage] = []
+    var imgArray = PublishSubject<[UIImage]>()
     @IBOutlet weak var collectionView:UICollectionView!
     override func viewDidLoad() {
         collectionView.rx.setDelegate(self)
@@ -18,11 +20,11 @@ class ClothItemViewController: UIViewController ,ViewControllerBindableType,UICo
         super.viewDidLoad()
     }
     func bindViewModel() {
-        
-        viewModel.dummyData
+        imgArray
             .bind(to:collectionView.rx.items){collectionView,row,data in
                 let indexPath = IndexPath(row: row, section: 0)
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clothCell", for:indexPath) as? clothCell else { return UICollectionViewCell() }
+                cell.thumbnail.image = data
                 cell.layer.cornerRadius = 5.0
                 cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 return cell

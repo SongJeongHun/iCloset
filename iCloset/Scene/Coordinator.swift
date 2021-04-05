@@ -66,29 +66,47 @@ class Coordinator:SceneCoordinatorType{
                 for vc in superVC.children{
                     var childVC = vc as? ClothItemViewController
                     childVC?.bind(viewModel: currentVM)
+                    print(i)
                     switch i{
                     case 0:
-                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
+                        //bottom
+                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .bottom)
                             .subscribe(onNext:{ [unowned self] path in
-                                print(path)
+                                childVC!.viewModel.storage.getThumbnail(from: path, category: .bottom)
+                                    .subscribe(onNext:{ img in
+                                        childVC!.imgArray.onNext(img)
+                                    })
+                                    .disposed(by: self.bag)
                             })
                             .disposed(by: bag)
                     case 1:
-                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .bottom)
+                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
                             .subscribe(onNext:{ [unowned self] path in
-                                print(path)
+                                childVC!.viewModel.storage.getThumbnail(from: path, category: .top)
+                                    .subscribe(onNext:{ img in
+                                        childVC!.imgArray.onNext(img)
+                                    })
+                                    .disposed(by: self.bag)
                             })
                             .disposed(by: bag)
                     case 2:
-                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .shoe)
+                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
                             .subscribe(onNext:{ [unowned self] path in
-                                print(path)
+                                childVC!.viewModel.storage.getThumbnail(from: path, category: .top)
+                                    .subscribe(onNext:{ img in
+                                        childVC!.imgArray.onNext(img)
+                                    })
+                                    .disposed(by: self.bag)
                             })
                             .disposed(by: bag)
                     case 3:
-                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .acc)
+                        childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
                             .subscribe(onNext:{ [unowned self] path in
-                                print(path)
+                                childVC!.viewModel.storage.getThumbnail(from: path, category: .top)
+                                    .subscribe(onNext:{ img in
+                                        childVC!.imgArray.onNext(img)
+                                    })
+                                    .disposed(by: self.bag)
                             })
                             .disposed(by: bag)
                     default:

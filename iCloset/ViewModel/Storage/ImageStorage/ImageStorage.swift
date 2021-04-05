@@ -13,7 +13,7 @@ import RxFirebaseStorage
 import Foundation
 class ImageStorage{
     private let userID:String
-    let currentCloset:String
+    var currentCloset:String
     let bag = DisposeBag()
     let ref = Database.database().reference()
     let storeRef = Storage.storage()
@@ -51,6 +51,22 @@ class ImageStorage{
                 }
                 subject.onNext(Array(data.keys))
             })
+        return subject
+    }
+    func getThumbnail(from path:[String],category:clothCategory) -> Observable<[UIImage]>{
+        let subject = PublishSubject<[UIImage]>()
+        var img:[UIImage] = []
+        for i in path {
+            var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i)_img").rx
+            ref.downloadURL()
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+                .subscribe(onNext:{url in
+                    let data = try! Data(contentsOf: url)
+                    img.append(UIImage(data: data)!)
+                    subject.onNext(img)
+                })
+                .disposed(by: bag)
+        }
         return subject
     }
     func saveThumbnail(closet:String,cloth:Cloth,img:UIImage) -> Observable<Double>{
