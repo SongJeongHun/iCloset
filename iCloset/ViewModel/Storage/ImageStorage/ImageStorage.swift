@@ -25,10 +25,10 @@ class ImageStorage{
         let subject = PublishSubject<[String]>()
         ref.child("users").child(userID).child(closet).child("\(cloth.category)").rx
             .observeSingleEvent(.value)
-            .subscribe(onSuccess: { [unowned self] snap in
+            .subscribe(onSuccess: { snap in
+                print(snap)
                 guard let data = snap.value! as? Dictionary<String,Any> else {
-                    print("error occur")
-                    return subject.onError(fatalError())
+                    return subject.onNext(Array())
                 }
                 subject.onNext(Array(data.keys))
             })
