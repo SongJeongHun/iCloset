@@ -12,7 +12,7 @@ import RxCocoa
 class ClothItemViewController: UIViewController ,ViewControllerBindableType,UICollectionViewDelegate{
     var viewModel:ClosetViewModel!
     var imgArr:[UIImage] = []
-    var imgArray = PublishSubject<[UIImage]>()
+    var imgArray = PublishSubject<[UIImage?]>()
     @IBOutlet weak var collectionView:UICollectionView!
     override func viewDidLoad() {
         collectionView.rx.setDelegate(self)

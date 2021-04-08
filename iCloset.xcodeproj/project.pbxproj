@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		726284CFF088F2A861FB89CC /* Pods_iCloset.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4F8E0F911CC77C4F47C820 /* Pods_iCloset.framework */; };
 		A70EC15A2615BC8A00604658 /* discard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70EC1592615BC8A00604658 /* discard.swift */; };
+		A71D0820261C68F800640EDC /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71D081F261C68F800640EDC /* ImageCache.swift */; };
 		A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */; };
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCloset.release.xcconfig"; path = "Target Support Files/Pods-iCloset/Pods-iCloset.release.xcconfig"; sourceTree = "<group>"; };
 		A70EC1592615BC8A00604658 /* discard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discard.swift; sourceTree = "<group>"; };
+		A71D081F261C68F800640EDC /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerPickerExtension.swift; sourceTree = "<group>"; };
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 				326980B73E2A3E981CFD3CBF /* Pods-iCloset.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A71D081E261C68ED00640EDC /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A71D081F261C68F800640EDC /* ImageCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		A7360AA9260470D90047D77A /* Login */ = {
@@ -209,6 +219,7 @@
 		A7A9D82225F5F10E00C4FBBD /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A71D081E261C68ED00640EDC /* Cache */,
 				A740A019261839A2007448FA /* ImageStorage */,
 				A76C503C25FF257F00009139 /* UserStorage */,
 			);
@@ -387,6 +398,7 @@
 				A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */,
 				A79602E625F5F65900686D69 /* Scene.swift in Sources */,
 				A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */,
+				A71D0820261C68F800640EDC /* ImageCache.swift in Sources */,
 				A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */,
 				A79602E025F5F30300686D69 /* ViewControllerBindableType.swift in Sources */,
 				A740A02026183A44007448FA /* ImageStorage.swift in Sources */,
