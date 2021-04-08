@@ -497,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foP-8s-9fx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foP-8s-9fx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1076"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2om-EY-Zfk">
@@ -650,6 +650,7 @@
                         <outlet property="addClothView" destination="n7X-LA-Poe" id="68X-z6-vaw"/>
                         <outlet property="addPresetButton" destination="GgC-Aq-3YP" id="ypG-Va-Afn"/>
                         <outlet property="addPresetView" destination="Leo-UZ-RvU" id="XyL-JF-SR5"/>
+                        <outlet property="scrollView" destination="foP-8s-9fx" id="pNX-no-WBL"/>
                         <outlet property="selectClosetButton" destination="xVD-vx-bIf" id="ZJg-h3-I4l"/>
                         <outlet property="topView" destination="eep-Nd-RVL" id="cG2-nO-C9M"/>
                     </connections>

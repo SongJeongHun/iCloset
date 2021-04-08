@@ -63,7 +63,6 @@ class ImageStorage{
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                 .subscribe(onNext:{url in
                     let image = self.imageCache.getFile(url: url)
-                    print("data ----> \(image?.pngData())")
                     img.append(image)
                     subject.onNext(img)
                 })

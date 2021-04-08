@@ -6,11 +6,13 @@
 //
 import SideMenu
 import UIKit
+import Action
 import RxSwift
 import RxCocoa
-class ClosetViewController: UIViewController,ViewControllerBindableType {
+class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrollViewDelegate {
     var viewModel:ClosetViewModel!
     let shadowView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    @IBOutlet weak var scrollView:UIScrollView!
     @IBOutlet weak var topView:UIView!
     @IBOutlet weak var addClothView:UIView!
     @IBOutlet weak var addClothButton:UIButton!
@@ -18,6 +20,7 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
     @IBOutlet weak var addPresetButton:UIButton!
     @IBOutlet weak var selectClosetButton:UIBarButtonItem!
     override func viewDidLoad() {
+        scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         viewModel.getCLoset()
         viewModel.selectedCloset = "이름 없는 옷장"
         viewModel.currentCloset.onNext(viewModel.selectedCloset)
@@ -26,6 +29,7 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
         super.viewDidLoad()
     }
     func bindViewModel() {
+        addRefreshController()
         selectClosetButton.rx.action = viewModel.popSideMenu()
         addClothButton.rx.action = viewModel.addClothAction()
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
@@ -59,5 +63,13 @@ class ClosetViewController: UIViewController,ViewControllerBindableType {
         shadowView.layer.zPosition = 1
         UIApplication.shared.windows.filter{ $0.isKeyWindow }.first?.addSubview(shadowView)
         shadowView.isHidden = true
+    }
+    @IBAction func refresh(){
+        print("refresh,,")
+        scrollView.refreshControl?.endRefreshing()
+    }
+    func addRefreshController(){
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
 }
