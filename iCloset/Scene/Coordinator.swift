@@ -70,8 +70,12 @@ class Coordinator:SceneCoordinatorType{
                     case 0:
                         //bottom
                         childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .bottom)
-                            .subscribe(onNext:{ [unowned self] path in
-                                childVC!.viewModel.storage.getThumbnail(from: path, category: .bottom)
+                            .subscribe(onNext:{ [unowned self] clothes in
+                                childVC?.clothBrands = []
+                                for i in clothes{
+                                    childVC?.clothBrands.append(i.brand)
+                                }
+                                childVC!.viewModel.storage.getThumbnail(from: clothes, category: .bottom)
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -81,8 +85,12 @@ class Coordinator:SceneCoordinatorType{
                     case 1:
                         //shoe
                         childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .shoe)
-                            .subscribe(onNext:{ [unowned self] path in
-                                childVC!.viewModel.storage.getThumbnail(from: path, category: .shoe)
+                            .subscribe(onNext:{ [unowned self] clothes in
+                                childVC?.clothBrands = []
+                                for i in clothes{
+                                    childVC?.clothBrands.append(i.brand)
+                                }
+                                childVC!.viewModel.storage.getThumbnail(from: clothes, category: .shoe)
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -92,8 +100,12 @@ class Coordinator:SceneCoordinatorType{
                     case 2:
                         //acc
                         childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .acc)
-                            .subscribe(onNext:{ [unowned self] path in
-                                childVC!.viewModel.storage.getThumbnail(from: path, category: .acc)
+                            .subscribe(onNext:{ [unowned self] clothes in
+                                childVC?.clothBrands = []
+                                for i in clothes{
+                                    childVC?.clothBrands.append(i.brand)
+                                }
+                                childVC!.viewModel.storage.getThumbnail(from: clothes, category: .acc)
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -103,8 +115,12 @@ class Coordinator:SceneCoordinatorType{
                     case 3:
                         //top
                         childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
-                            .subscribe(onNext:{ [unowned self] path in
-                                childVC!.viewModel.storage.getThumbnail(from: path, category: .top)
+                            .subscribe(onNext:{ [unowned self] clothes in
+                                childVC?.clothBrands = []
+                                for i in clothes{
+                                    childVC?.clothBrands.append(i.brand)
+                                }
+                                childVC!.viewModel.storage.getThumbnail(from: clothes, category: .top)
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })

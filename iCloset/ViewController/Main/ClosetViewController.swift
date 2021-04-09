@@ -65,7 +65,59 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
         shadowView.isHidden = true
     }
     @IBAction func refresh(){
-        print("refresh,,")
+        var i = 0
+        for vc in self.children{
+            let childVC = vc as? ClothItemViewController
+            switch i{
+            case 0:
+                //bottom
+                childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .bottom)
+                    .subscribe(onNext:{ [unowned self] clothes in
+                        childVC!.viewModel.storage.getThumbnail(from: clothes, category: .bottom)
+                            .subscribe(onNext:{ img in
+                                childVC!.imgArray.onNext(img)
+                            })
+                            .disposed(by: self.rx.disposeBag)
+                    })
+                    .disposed(by: rx.disposeBag)
+            case 1:
+                //shoe
+                childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .shoe)
+                    .subscribe(onNext:{ [unowned self] clothes in
+                        childVC!.viewModel.storage.getThumbnail(from: clothes, category: .shoe)
+                            .subscribe(onNext:{ img in
+                                childVC!.imgArray.onNext(img)
+                            })
+                            .disposed(by: self.rx.disposeBag)
+                    })
+                    .disposed(by: rx.disposeBag)
+            case 2:
+                //acc
+                childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .acc)
+                    .subscribe(onNext:{ [unowned self] clothes in
+                        childVC!.viewModel.storage.getThumbnail(from: clothes, category: .acc)
+                            .subscribe(onNext:{ img in
+                                childVC!.imgArray.onNext(img)
+                            })
+                            .disposed(by: self.rx.disposeBag)
+                    })
+                    .disposed(by: rx.disposeBag)
+            case 3:
+                //top
+                childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
+                    .subscribe(onNext:{ [unowned self] clothes in
+                        childVC!.viewModel.storage.getThumbnail(from: clothes, category: .top)
+                            .subscribe(onNext:{ img in
+                                childVC!.imgArray.onNext(img)
+                            })
+                            .disposed(by: self.rx.disposeBag)
+                    })
+                    .disposed(by: rx.disposeBag)
+            default:
+                break
+            }
+            i += 1
+        }
         scrollView.refreshControl?.endRefreshing()
     }
     func addRefreshController(){

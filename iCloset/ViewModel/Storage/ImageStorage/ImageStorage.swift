@@ -13,6 +13,7 @@ import RxFirebaseStorage
 import Foundation
 class ImageStorage{
     var imageCache = ImageCache()
+    
     private let userID:String
     var currentCloset:String
     let bag = DisposeBag()
@@ -42,26 +43,43 @@ class ImageStorage{
             .subscribe { _ in }
             .disposed(by: bag)
     }
-    func getPath(closet:String,category:clothCategory) -> Observable<[String]> {
-        let subject = PublishSubject<[String]>()
+    func getPath(closet:String,category:clothCategory) -> Observable<[Cloth]> {
+        let subject = PublishSubject<[Cloth]>()
+        var clothArr:[Cloth] = []
         ref.child("users").child(userID).child(closet).child("\(category)").rx
             .observeSingleEvent(.value)
             .subscribe(onSuccess:{ [unowned self] snap in
-                guard let data = snap.value! as? Dictionary<String,Any> else {
-                    return
+                guard let data = snap.value! as? Dictionary<String,Any> else { return }
+                for i in data.values{
+                    guard let stringData = i as? Dictionary<String,String> else { return }
+                    let category:clothCategory
+                    switch stringData["clothCategory"]{
+                    case "top":
+                        category = clothCategory.top
+                    case "botoom":
+                        category = clothCategory.bottom
+                    case "shoe":
+                        category = clothCategory.shoe
+                    case "acc":
+                        category = clothCategory.acc
+                    default:
+                        return
+                    }
+                    let cloth = Cloth(name: stringData["clothName"]!, brand: stringData["clothBrand"]!, category:category)
+                    clothArr.append(cloth)
                 }
-                subject.onNext(Array(data.keys))
+                subject.onNext(clothArr)
             })
         return subject
     }
-    func getThumbnail(from path:[String],category:clothCategory) -> Observable<[UIImage?]>{
+    func getThumbnail(from path:[Cloth],category:clothCategory) -> Observable<[UIImage?]>{
         let subject = PublishSubject<[UIImage?]>()
         var img:[UIImage?] = []
         for i in path {
-            var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i)_img").rx
+            var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
             ref.downloadURL()
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-                .subscribe(onNext:{url in
+                .subscribe(onNext:{ url in
                     let image = self.imageCache.getFile(url: url)
                     img.append(image)
                     subject.onNext(img)
