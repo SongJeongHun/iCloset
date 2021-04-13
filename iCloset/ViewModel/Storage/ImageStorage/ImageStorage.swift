@@ -78,7 +78,7 @@ class ImageStorage{
         for i in path {
             var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
             ref.downloadURL()
-                .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                 .subscribe(onNext:{ url in
                     let image = self.imageCache.getFile(url: url)
                     img.append(image)
@@ -108,7 +108,7 @@ class ImageStorage{
         let subject = PublishSubject<[UIImage]>()
         let ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(cloth.category)/\(cloth.name)").rx
         ref.downloadURL()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .subscribe(onNext:{url in
                 let data = try! Data(contentsOf: url)
                 subject.onNext([UIImage(data: data)!])
