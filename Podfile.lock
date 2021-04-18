@@ -2,7 +2,8 @@ PODS:
   - Action (4.2.0):
     - RxCocoa (< 7.0, >= 5.0)
     - RxSwift (< 7.0, >= 5.0)
-  - Alamofire (5.4.1)
+  - Alamofire (5.4.2)
+  - DropDown (2.3.13)
   - Firebase (6.34.0):
     - Firebase/Core (= 6.34.0)
   - Firebase/Core (6.34.0):
@@ -70,7 +71,7 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - leveldb-library (1.22.1)
   - lottie-ios (3.2.1)
-  - Mantis (1.5.2)
+  - Mantis (1.6.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -107,6 +108,7 @@ PODS:
 DEPENDENCIES:
   - Action
   - Alamofire
+  - DropDown
   - Firebase
   - FSCalendar
   - lottie-ios
@@ -123,6 +125,7 @@ SPEC REPOS:
   trunk:
     - Action
     - Alamofire
+    - DropDown
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -152,7 +155,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Action: 5dc2194f7a0b77857c82a677b0da655f197c005f
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
@@ -167,7 +171,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
-  Mantis: 2d820f8d7a2f576ad028d5418faab8f5656c2997
+  Mantis: 5095b4b604ffd4c038a22df6e8a61f2c18a52f34
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -180,6 +184,6 @@ SPEC CHECKSUMS:
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 3658b42c2cea662f97f0199505953094831535f2
+PODFILE CHECKSUM: 902e6be6404e41a63b63c748a264249e9af8ace8
 
 COCOAPODS: 1.9.3

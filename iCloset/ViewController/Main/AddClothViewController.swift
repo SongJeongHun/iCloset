@@ -10,12 +10,15 @@ import RxSwift
 import Lottie
 import Mantis
 import NSObject_Rx
+import DropDown
 class AddClothViewController: UIViewController,ViewControllerBindableType,UINavigationControllerDelegate,UIScrollViewDelegate{
+    let dropDown = DropDown()
     let loadingAnimationView = AnimationView(name: "clothes")
     let cropView = UIView()
     var cropTopButton = UIButton()
     var cropBottomButton = UIButton()
     let progressView = UIProgressView()
+    var currentCategory = ""
     var clothName:String = "이름 없는 옷"
     var viewModel:AddClothViewModel!
     let picker = UIImagePickerController()
@@ -25,8 +28,10 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     @IBOutlet weak var removeBGButton:UIButton!
     @IBOutlet weak var cutOKButton:UIButton!
     @IBOutlet weak var modifyButton:UIButton!
+    @IBOutlet weak var categoryButton:UIButton!
     @IBOutlet weak var saveButton:UIButton!
     override func viewDidLoad() {
+        setDropDown()
         inputImage.isUserInteractionEnabled = true
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         prepareLoading()
@@ -42,9 +47,26 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
     func bindViewModel() {
         saveButton.rx.tap
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:{ _ in
+            .subscribe(onNext:{ [self] _ in
                 guard let img = self.inputImage?.image else { return }
-                let cloth = Cloth(name: self.clothName, brand: "test", category: clothCategory.top, timeCreated: Date())
+                let category:clothCategory
+                switch currentCategory{
+                case "상의":
+                    category = clothCategory.top
+                case "하의":
+                    category = clothCategory.bottom
+                case "신발":
+                    category = clothCategory.shoe
+                case "악세사리":
+                    category = clothCategory.acc
+                default:
+                    let alert = UIAlertController(title: "알림", message: "카테고리를 선택해 주세요!", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                let cloth = Cloth(name: self.clothName, brand: "test", category: category, timeCreated: Date())
                 self.viewModel.storage.clothNameValidationCheck(closet: self.viewModel.selectedCloset, cloth: cloth)
                     .subscribe(onNext:{ [unowned self] validation in
                         let validCloth = self.viewModel.createName(keys: validation,cloth:cloth)
@@ -77,6 +99,12 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 self.addThumbnailAlert()
+            })
+            .disposed(by: rx.disposeBag)
+        categoryButton.rx.tap
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{_ in
+                self.dropDown.show()
             })
             .disposed(by: rx.disposeBag)
         modifyButton.rx.tap
@@ -151,8 +179,18 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             })
             .disposed(by: rx.disposeBag)
     }
+    func setDropDown(){
+        dropDown.dataSource = ["상의","하의","신발","악세사리"]
+        dropDown.layer.cornerRadius = 5.0
+        dropDown.anchorView = categoryButton
+        dropDown.selectedTextColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        dropDown.selectionBackgroundColor = #colorLiteral(red: 0.5791992545, green: 0.5121335983, blue: 0.4514948726, alpha: 1)
+        dropDown.bottomOffset = CGPoint(x: 0, y:Int((dropDown.anchorView?.plainView.bounds.height)!))
+        dropDown.selectionAction = {[unowned self] _,item in
+            self.currentCategory = item
+        }
+    }
     func setUI(){
-        self.cutOKButton.isHidden = true
         inputImage.layer.borderColor = #colorLiteral(red: 0.5791992545, green: 0.5121335983, blue: 0.4514948726, alpha: 1)
         inputImage.layer.borderWidth = 1.0
         modifyButton.layer.cornerRadius = 5.0

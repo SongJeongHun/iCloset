@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 struct ClothItem{
     var cloth:Cloth
-    var img:UIImage
+    var img:UIImage?
     var createdTime:Date
     init(cloth:Cloth,img:UIImage,createdTime:Date){
         self.cloth = cloth

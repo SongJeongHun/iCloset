@@ -6,6 +6,7 @@
 //
 import RxSwift
 import Action
+import DropDown
 import Firebase
 import RxFirebaseDatabase
 import NSObject_Rx
@@ -81,7 +82,7 @@ class ImageStorage{
                 .subscribe(onNext:{ url,metaData in
                     let image = self.imageCache.getFile(url: url)
                     let time = metaData.value(forKey: "timeCreated") as! Date
-                    let item = ClothItem(cloth: i, img: image!, createdTime: time)
+                    let item = ClothItem(cloth: i, img: image ?? UIImage(), createdTime: time)
                     items.append(item)
                     items.sort(by:{ $0.createdTime < $1.createdTime })
                     subject.onNext(items)

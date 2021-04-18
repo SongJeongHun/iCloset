@@ -6,7 +6,7 @@ target 'iCloset' do
   use_frameworks!
 
   # Pods for iCloset
-  pod 'RxSwift'
+pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Action'
   pod 'NSObject+Rx'
@@ -19,5 +19,6 @@ target 'iCloset' do
   pod 'RxAlamofire'
   pod 'lottie-ios'
   pod 'Mantis'
+  pod 'DropDown'
 
 end
