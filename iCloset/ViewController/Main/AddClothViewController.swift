@@ -44,7 +44,7 @@ class AddClothViewController: UIViewController,ViewControllerBindableType,UINavi
             .throttle(.milliseconds(3000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 guard let img = self.inputImage?.image else { return }
-                let cloth = Cloth(name: self.clothName, brand: "test", category: clothCategory.top)
+                let cloth = Cloth(name: self.clothName, brand: "test", category: clothCategory.top, timeCreated: Date())
                 self.viewModel.storage.clothNameValidationCheck(closet: self.viewModel.selectedCloset, cloth: cloth)
                     .subscribe(onNext:{ [unowned self] validation in
                         let validCloth = self.viewModel.createName(keys: validation,cloth:cloth)

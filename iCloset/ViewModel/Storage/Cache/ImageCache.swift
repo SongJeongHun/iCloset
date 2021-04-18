@@ -16,18 +16,25 @@ class ImageCache{
     func getFile(url:URL) -> UIImage? {
         var urlImage:UIImage? = nil
         //Memory Cache
-        if let image = imageCache.object(forKey: url.lastPathComponent as NSString)  { return image }
+        if let image = imageCache.object(forKey: url.lastPathComponent as NSString)  {
+            print("Memory Cache")
+            return image
+        }
         guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else { return urlImage }
         var filePath = URL(fileURLWithPath: path)
         filePath.appendPathComponent(url.lastPathComponent)
         if !fileManager.fileExists(atPath:filePath.path){
             //Download URL
-            guard let imageData = try? Data(contentsOf: url) else { return nil }
-            guard let image = UIImage(data:imageData) else { return nil }
-            setCacheObj(url: url, img: image)
-            fileManager.createFile(atPath: filePath.path, contents: imageData, attributes: nil)
+            print("download URL")
+            DispatchQueue.global(qos: .background).async {
+                guard let imageData = try? Data(contentsOf: url) else { return }
+                urlImage = UIImage(data:imageData)
+                self.setCacheObj(url: url, img: urlImage!)
+                self.fileManager.createFile(atPath: filePath.path,contents: imageData, attributes: nil)
+            }
         }else{
             //Disk Cache
+            print("disk Cache")
             guard let imageData = try? Data(contentsOf: filePath) else { return nil }
             guard let image = UIImage(data:imageData) else { return nil }
             return image

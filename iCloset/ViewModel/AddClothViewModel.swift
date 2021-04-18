@@ -59,7 +59,7 @@ class AddClothViewModel:ViewModeltype{
             }
         }
         if count == 0 { return cloth }
-        else { return Cloth(name: newName, brand: cloth.brand, category: cloth.category) }
+        else { return Cloth(name: newName, brand: cloth.brand, category: cloth.category, timeCreated: cloth.timeCreated) }
     }
 }
 extension AddClothViewModel{

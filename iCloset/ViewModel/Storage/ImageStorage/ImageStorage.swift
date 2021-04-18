@@ -13,7 +13,6 @@ import RxFirebaseStorage
 import Foundation
 class ImageStorage{
     var imageCache = ImageCache()
-    
     private let userID:String
     var currentCloset:String
     let bag = DisposeBag()
@@ -65,32 +64,35 @@ class ImageStorage{
                     default:
                         return
                     }
-                    let cloth = Cloth(name: stringData["clothName"]!, brand: stringData["clothBrand"]!, category:category)
+                    let cloth = Cloth(name: stringData["clothName"]!, brand: stringData["clothBrand"]!, category:category,timeCreated: Date())
                     clothArr.append(cloth)
                 }
                 subject.onNext(clothArr)
             })
         return subject
     }
-    func getThumbnail(from path:[Cloth],category:clothCategory) -> Observable<[UIImage?]>{
-        let subject = PublishSubject<[UIImage?]>()
-        var img:[UIImage?] = []
+    func getThumbnail(from path:[Cloth],category:clothCategory) -> Observable<[ClothItem]>{
+        let subject = PublishSubject<[ClothItem]>()
+        var imgDict:Dictionary<String,UIImage> = [:]
+        var items:[ClothItem] = []
         for i in path {
             var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
-            ref.downloadURL()
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-                .subscribe(onNext:{ url in
+            Observable.combineLatest(ref.downloadURL(), ref.getMetadata())
+                .subscribe(onNext:{ url,metaData in
                     let image = self.imageCache.getFile(url: url)
-                    img.append(image)
-                    subject.onNext(img)
+                    let time = metaData.value(forKey: "timeCreated") as! Date
+                    let item = ClothItem(cloth: i, img: image!, createdTime: time)
+                    items.append(item)
+                    items.sort(by:{ $0.createdTime < $1.createdTime })
+                    subject.onNext(items)
                 })
-                .disposed(by: bag)
+                .disposed(by:bag)
         }
         return subject
     }
     func saveThumbnail(closet:String,cloth:Cloth,img:UIImage) -> Observable<Double>{
         let subject = PublishSubject<Double>()
-        var data = img.pngData()!
+        let data = img.pngData()!
         let ref = storeRef.reference().child("users/\(userID)/\(closet)/\(cloth.category)").child("\(cloth.name)_img")
         let uploadTask = ref.putData(data)
         uploadTask.rx.observe(.progress)
@@ -102,18 +104,6 @@ class ImageStorage{
             .subscribe(onNext:{ _ in
                 self.savePath(closet: closet, cloth: cloth)
             })
-        return subject
-    }
-    func getThumbnail(cloth:Cloth) -> Observable<[UIImage]>{
-        let subject = PublishSubject<[UIImage]>()
-        let ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(cloth.category)/\(cloth.name)").rx
-        ref.downloadURL()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
-            .subscribe(onNext:{url in
-                let data = try! Data(contentsOf: url)
-                subject.onNext([UIImage(data: data)!])
-            })
-            .disposed(by: bag)
         return subject
     }
 }
