@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="avJ-HS-wAI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="avJ-HS-wAI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -1030,14 +1030,100 @@
                     <view key="view" contentMode="scaleToFill" id="fSW-vn-7U0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptb-P1-UFl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yt2-Vl-ubR">
+                                        <rect key="frame" x="376" y="10" width="30" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="ECz-Yq-Slv"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.56806045770000002" green="0.51450610159999999" blue="0.45881479980000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름 없는 옷장" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-oD-4BW">
+                                        <rect key="frame" x="0.0" y="5" width="368" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7Yi-oD-4BW" firstAttribute="top" secondItem="ptb-P1-UFl" secondAttribute="top" constant="5" id="1ov-zQ-NjD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yt2-Vl-ubR" secondAttribute="bottom" constant="10" id="KWd-y5-yib"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Yi-oD-4BW" secondAttribute="bottom" constant="5" id="NpJ-hD-DJb"/>
+                                    <constraint firstItem="7Yi-oD-4BW" firstAttribute="leading" secondItem="ptb-P1-UFl" secondAttribute="leading" id="SDr-qd-vpV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yt2-Vl-ubR" secondAttribute="trailing" constant="8" id="Xwy-bt-yDL"/>
+                                    <constraint firstAttribute="height" constant="45" id="bNo-FB-Aca"/>
+                                    <constraint firstItem="Yt2-Vl-ubR" firstAttribute="leading" secondItem="7Yi-oD-4BW" secondAttribute="trailing" constant="8" symbolic="YES" id="bcY-dd-EOn"/>
+                                    <constraint firstItem="Yt2-Vl-ubR" firstAttribute="top" secondItem="ptb-P1-UFl" secondAttribute="top" constant="10" id="t2B-GQ-j3M"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6qT-Rf-QPQ">
+                                <rect key="frame" x="0.0" y="133" width="414" height="763"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideMenuCell" rowHeight="56" id="ffG-M5-iR0" customClass="SideMenuCell" customModule="iCloset" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ffG-M5-iR0" id="Ryf-3f-HuV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closet" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-BO-RKg">
+                                                    <rect key="frame" x="10" y="10" width="35" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="5Eq-gF-UZF"/>
+                                                        <constraint firstAttribute="height" constant="35" id="VWf-Du-56l"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여름옷장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nek-gw-d1x" customClass="SideMenu">
+                                                    <rect key="frame" x="53" y="11" width="351" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lpd-BO-RKg" firstAttribute="top" secondItem="Ryf-3f-HuV" secondAttribute="top" constant="10" id="DD5-Lv-1vb"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nek-gw-d1x" secondAttribute="trailing" constant="10" id="ICb-IA-8p1"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nek-gw-d1x" secondAttribute="bottom" constant="11" id="LhP-ij-9ao"/>
+                                                <constraint firstAttribute="bottom" secondItem="lpd-BO-RKg" secondAttribute="bottom" constant="10" id="Q5i-BB-zDR"/>
+                                                <constraint firstItem="Nek-gw-d1x" firstAttribute="leading" secondItem="lpd-BO-RKg" secondAttribute="trailing" constant="8" symbolic="YES" id="U8a-qn-SgK"/>
+                                                <constraint firstItem="Nek-gw-d1x" firstAttribute="top" secondItem="Ryf-3f-HuV" secondAttribute="top" constant="11" id="a35-Ao-13i"/>
+                                                <constraint firstItem="lpd-BO-RKg" firstAttribute="leading" secondItem="Ryf-3f-HuV" secondAttribute="leading" constant="10" id="dNe-4z-U5a"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="closetName" destination="Nek-gw-d1x" id="gjg-hf-xIo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KEz-Ka-xPb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ptb-P1-UFl" firstAttribute="top" secondItem="KEz-Ka-xPb" secondAttribute="top" id="VGe-Le-ARm"/>
+                            <constraint firstItem="ptb-P1-UFl" firstAttribute="leading" secondItem="KEz-Ka-xPb" secondAttribute="leading" id="WAD-E3-bHw"/>
+                            <constraint firstItem="ptb-P1-UFl" firstAttribute="trailing" secondItem="KEz-Ka-xPb" secondAttribute="trailing" id="oLM-Dm-fAA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="l7e-Ze-EEi"/>
+                    <connections>
+                        <outlet property="addClosetButton" destination="Yt2-Vl-ubR" id="y8A-s7-79Z"/>
+                        <outlet property="selectedCloset" destination="7Yi-oD-4BW" id="Uhf-vc-3OV"/>
+                        <outlet property="tableView" destination="6qT-Rf-QPQ" id="bw7-2N-fyz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tid-Br-LdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4871" y="2333"/>
+            <point key="canvasLocation" x="4869.5652173913049" y="2331.6964285714284"/>
         </scene>
         <!--Closet Side Menu Navigation-->
         <scene sceneID="3TB-Iw-V1X">
@@ -1168,6 +1254,7 @@
         <image name="openCloset" width="900" height="512"/>
         <image name="pencil" width="512" height="512"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="96"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="prada-removebg-preview-1" width="577" height="433"/>
         <image name="ring" width="436" height="572"/>
         <image name="scissors" width="512" height="512"/>

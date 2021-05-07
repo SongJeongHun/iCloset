@@ -9,12 +9,18 @@ import Foundation
 enum ApplicationNotiCenter:NotificationCenterType{
     case sideMenuWillAppear
     case sideMenuWillDisappear
+    case alertControllerAppear
+    case alertControllerDisappear
     var name:Notification.Name{
         switch self{
         case .sideMenuWillAppear:
             return Notification.Name("sideMenuWillAppear")
         case .sideMenuWillDisappear:
             return Notification.Name("sideMenuWillDisappear")
+        case .alertControllerAppear:
+            return Notification.Name("alertControllerAppear")
+        case .alertControllerDisappear:
+            return Notification.Name("alertControllerDisappear")
         }
     }
 }

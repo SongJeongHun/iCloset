@@ -13,6 +13,12 @@ import NSObject_Rx
 import RxFirebaseStorage
 import Foundation
 class ImageStorage{
+    var formatter:DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy.MM.dd,hh:mm"
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
     var imageCache = ImageCache()
     private let userID:String
     var currentCloset:String
@@ -33,6 +39,31 @@ class ImageStorage{
                     return subject.onNext(Array())
                 }
                 subject.onNext(Array(data.keys))
+            })
+            .disposed(by: bag)
+        return subject
+    }
+    func saveCloset(closetName:String){
+        ref.child("users").child(userID).child("closets").child(closetName).rx
+            .setValue(formatter.string(from:Date()))
+            .subscribe { _ in }
+            .disposed(by: bag)
+    }
+    func getCloset() -> Observable<[String]>{
+        let subject = PublishSubject<[String]>()
+        var keyArray : [String] = []
+        ref.child("users").child(userID).child("closets").rx
+            .observeSingleEvent(.value)
+            .subscribe(onSuccess:{ [unowned self] snap in
+                guard let data = snap.value! as? Dictionary<String,String> else {
+                    print("fail")
+                    return
+                }
+                let sortedData = data.sorted{formatter.date(from: $0.value)! < formatter.date(from: $1.value)!}
+                for i in sortedData{
+                    keyArray.append(i.key)
+                }
+                subject.onNext(keyArray)
             })
             .disposed(by: bag)
         return subject
@@ -74,12 +105,16 @@ class ImageStorage{
     }
     func getThumbnail(from path:[Cloth],category:clothCategory) -> Observable<[ClothItem]>{
         let subject = PublishSubject<[ClothItem]>()
-        var imgDict:Dictionary<String,UIImage> = [:]
         var items:[ClothItem] = []
         for i in path {
-            var ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
+            if category == clothCategory.shoe{
+                print(path)
+                print("shoe")
+            }
+            let ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
             Observable.combineLatest(ref.downloadURL(), ref.getMetadata())
                 .subscribe(onNext:{ url,metaData in
+                    print(metaData)
                     let image = self.imageCache.getFile(url: url)
                     let time = metaData.value(forKey: "timeCreated") as! Date
                     let item = ClothItem(cloth: i, img: image ?? UIImage(), createdTime: time)

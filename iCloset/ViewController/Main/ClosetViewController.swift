@@ -21,7 +21,11 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
     @IBOutlet weak var selectClosetButton:UIBarButtonItem!
     override func viewDidLoad() {
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
-        viewModel.getCLoset()
+//        viewModel.storage.getCloset()
+//            .subscribe(onNext:{ closets in
+//                self.viewModel.selectedCloset = closets[0]
+//
+//            })
         viewModel.selectedCloset = "이름 없는 옷장"
         viewModel.currentCloset.onNext(viewModel.selectedCloset)
         prepareShadowView()
@@ -32,6 +36,18 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
         addRefreshController()
         selectClosetButton.rx.action = viewModel.popSideMenu()
         addClothButton.rx.action = viewModel.addClothAction()
+        ApplicationNotiCenter.alertControllerAppear.addObserver()
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext:{ _ in
+                self.shadowView.isHidden = true
+            })
+            .disposed(by: rx.disposeBag)
+        ApplicationNotiCenter.alertControllerDisappear.addObserver()
+            .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext:{ _ in
+                self.shadowView.isHidden = false
+            })
+            .disposed(by: rx.disposeBag)
         ApplicationNotiCenter.sideMenuWillDisappear.addObserver()
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext:{_ in
