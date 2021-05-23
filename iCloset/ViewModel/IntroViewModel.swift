@@ -18,7 +18,8 @@ class IntroViewModel:ViewModeltype{
     func loginSuccessAction(_ userID:String) -> CocoaAction{
         return CocoaAction{ _ in
             let closetVM = ClosetViewModel(sceneCoordinator: self.sceneCoordinator, userID: userID)
-            let closetScene = Scene.closet(closetVM)
+            let timeLineVM = TimeLineViewModel(sceneCoordinator: self.sceneCoordinator, userID: userID)
+            let closetScene = Scene.closet(closetVM,timeLineVM)
             return self.sceneCoordinator.transition(to: closetScene, using: .root, animated: true).asObservable().map { _ in }
         }
     }

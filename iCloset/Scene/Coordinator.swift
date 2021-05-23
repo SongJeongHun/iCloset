@@ -32,12 +32,33 @@ class Coordinator:SceneCoordinatorType{
             currentVC = target.sceneViewController
             subject.onCompleted()
         case .push:
-            if type(of: target) ==  AddClothViewController.self {
+            if type(of: target) ==  PresetViewController.self {
+                guard let nav = currentVC.children.last as? UINavigationController else{
+                    break
+                }
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
+            }else if type(of: target) ==  AddClothViewController.self {
                 guard let nav = currentVC.children.last as? UINavigationController else{
                     print("Error occur : currentVC = \(currentVC)")
                     subject.onError(TransitionError.navigationMissing)
                     break
                 }
+                nav.pushViewController(target, animated: animated)
+                currentVC = target.sceneViewController
+                subject.onCompleted()
+            }else if type(of: target) == DatePickViewController.self{
+                guard let nav = currentVC.children.first as? UINavigationController else {
+                    print("error occur. current VC is -> \(currentVC)")
+                    subject.onError(TransitionError.navigationMissing)
+                    break
+                }
+                nav.rx.willShow
+                    .subscribe(onNext:{[unowned self] event in
+                        self.currentVC = event.viewController.sceneViewController.parent!.parent!
+                    })
+                    .disposed(by: bag)
                 nav.pushViewController(target, animated: animated)
                 currentVC = target.sceneViewController
                 subject.onCompleted()
@@ -76,6 +97,7 @@ class Coordinator:SceneCoordinatorType{
                                     childVC?.clothBrands.append(i.brand)
                                 }
                                 childVC!.viewModel.storage.getThumbnail(from: clothes, category: .bottom)
+//                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -85,12 +107,14 @@ class Coordinator:SceneCoordinatorType{
                     case 1:
                         //shoe
                         childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .shoe)
+                            
                             .subscribe(onNext:{ [unowned self] clothes in
                                 childVC?.clothBrands = []
                                 for i in clothes{
                                     childVC?.clothBrands.append(i.brand)
                                 }
                                 childVC!.viewModel.storage.getThumbnail(from: clothes, category: .shoe)
+//                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -106,6 +130,7 @@ class Coordinator:SceneCoordinatorType{
                                     childVC?.clothBrands.append(i.brand)
                                 }
                                 childVC!.viewModel.storage.getThumbnail(from: clothes, category: .acc)
+//                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })
@@ -121,6 +146,7 @@ class Coordinator:SceneCoordinatorType{
                                     childVC?.clothBrands.append(i.brand)
                                 }
                                 childVC!.viewModel.storage.getThumbnail(from: clothes, category: .top)
+//                                    .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                                     .subscribe(onNext:{ img in
                                         childVC!.imgArray.onNext(img)
                                     })

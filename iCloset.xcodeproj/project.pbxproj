@@ -14,12 +14,15 @@
 		A729F404260869F200BABAE1 /* ClosetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F403260869F200BABAE1 /* ClosetViewModel.swift */; };
 		A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A729F40726086A0C00BABAE1 /* ClosetViewController.swift */; };
 		A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */; };
+		A73E87DA26567F3400421B5E /* PresetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E87D926567F3400421B5E /* PresetViewController.swift */; };
 		A740A01B261839BA007448FA /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740A01A261839BA007448FA /* Cloth.swift */; };
 		A740A02026183A44007448FA /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A740A01F26183A44007448FA /* ImageStorage.swift */; };
 		A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */; };
 		A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */; };
 		A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7504E8E25FB53310042D6D6 /* ViewModelType.swift */; };
 		A750F5EA25FF2DB3003E6FC4 /* clothes.json in Resources */ = {isa = PBXBuildFile; fileRef = A750F5E925FF2DB3003E6FC4 /* clothes.json */; };
+		A760374D2649664300FE1132 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A760374C2649664300FE1132 /* TimeLineViewController.swift */; };
+		A760374F2649674300FE1132 /* TimeLineExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A760374E2649674300FE1132 /* TimeLineExtensionViewController.swift */; };
 		A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A762CE292601D14200D34AAD /* ResizeViewController.swift */; };
 		A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771BA30260B03F400652540 /* ClothItemViewController.swift */; };
 		A7843CD325FDD0CE004443A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7843CD225FDD0CE004443A0 /* User.swift */; };
@@ -30,11 +33,14 @@
 		A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602ED25F5F88200686D69 /* Coordinator.swift */; };
 		A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */; };
 		A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79602F325F5F8A100686D69 /* TransitionStyle.swift */; };
+		A7B2BC532651431A00D1DC81 /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B2BC522651431A00D1DC81 /* TimeLineViewModel.swift */; };
+		A7B2BC5526515D4000D1DC81 /* DatePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B2BC5426515D4000D1DC81 /* DatePickViewController.swift */; };
 		A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */; };
 		A7B3E77F2611BDF0005ECFF3 /* ApplicationNotiCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */; };
 		A7B3E7842611C259005ECFF3 /* ClosetSideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */; };
 		A7B3E7872611C771005ECFF3 /* SelectClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */; };
 		A7D17FE325F8FD6F004DF194 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7D17FE225F8FD6F004DF194 /* GoogleService-Info.plist */; };
+		A7DCB2EF2657D51900A31398 /* PresetSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DCB2EE2657D51900A31398 /* PresetSelectViewController.swift */; };
 		A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9013325F0CFA2007DB73A /* AppDelegate.swift */; };
 		A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F9013525F0CFA2007DB73A /* SceneDelegate.swift */; };
 		A7F9013B25F0CFA2007DB73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F9013925F0CFA2007DB73A /* Main.storyboard */; };
@@ -51,12 +57,15 @@
 		A729F403260869F200BABAE1 /* ClosetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetViewModel.swift; path = ../../../../../Downloads/ClosetViewModel.swift; sourceTree = "<group>"; };
 		A729F40726086A0C00BABAE1 /* ClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetViewController.swift; sourceTree = "<group>"; };
 		A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothViewControllerManualCropExtension.swift; sourceTree = "<group>"; };
+		A73E87D926567F3400421B5E /* PresetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetViewController.swift; sourceTree = "<group>"; };
 		A740A01A261839BA007448FA /* Cloth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
 		A740A01F26183A44007448FA /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		A7504E8B25FB521B0042D6D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A7504E8E25FB53310042D6D6 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		A750F5E925FF2DB3003E6FC4 /* clothes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clothes.json; sourceTree = "<group>"; };
+		A760374C2649664300FE1132 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		A760374E2649674300FE1132 /* TimeLineExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineExtensionViewController.swift; sourceTree = "<group>"; };
 		A762CE292601D14200D34AAD /* ResizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeViewController.swift; sourceTree = "<group>"; };
 		A771BA30260B03F400652540 /* ClothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothItemViewController.swift; sourceTree = "<group>"; };
 		A7843CD225FDD0CE004443A0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -67,11 +76,14 @@
 		A79602ED25F5F88200686D69 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A79602F025F5F89400686D69 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		A79602F325F5F8A100686D69 /* TransitionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
+		A7B2BC522651431A00D1DC81 /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
+		A7B2BC5426515D4000D1DC81 /* DatePickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
 		A7B3DC2F25F9FE96001642B6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNotiCenter.swift; sourceTree = "<group>"; };
 		A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetSideMenuNavigation.swift; sourceTree = "<group>"; };
 		A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetViewController.swift; sourceTree = "<group>"; };
 		A7D17FE225F8FD6F004DF194 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A7DCB2EE2657D51900A31398 /* PresetSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetSelectViewController.swift; sourceTree = "<group>"; };
 		A7F9013025F0CFA2007DB73A /* iCloset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F9013325F0CFA2007DB73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7F9013525F0CFA2007DB73A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,14 +145,9 @@
 		A7360AAA260470E40047D77A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A7DCB2ED2657D4C400A31398 /* TimeLIne */,
+				A7DCB2EC2657D4C200A31398 /* Closet */,
 				A750F5E925FF2DB3003E6FC4 /* clothes.json */,
-				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
-				A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */,
-				A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */,
-				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
-				A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */,
-				A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */,
-				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
 				A70EC1592615BC8A00604658 /* discard.swift */,
 			);
 			path = Main;
@@ -201,6 +208,7 @@
 				A7504E8525FB4C240042D6D6 /* IntroViewModel.swift */,
 				A7504E8E25FB53310042D6D6 /* ViewModelType.swift */,
 				A729F403260869F200BABAE1 /* ClosetViewModel.swift */,
+				A7B2BC522651431A00D1DC81 /* TimeLineViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -232,6 +240,32 @@
 				A7B3E77E2611BDF0005ECFF3 /* ApplicationNotiCenter.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		A7DCB2EC2657D4C200A31398 /* Closet */ = {
+			isa = PBXGroup;
+			children = (
+				A79602E825F5F7D400686D69 /* AddClothViewController.swift */,
+				A7203A1225F78537005E1269 /* AddClothViewControllerPickerExtension.swift */,
+				A73B1F6A26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift */,
+				A729F40726086A0C00BABAE1 /* ClosetViewController.swift */,
+				A7B3E7832611C259005ECFF3 /* ClosetSideMenuNavigation.swift */,
+				A7B3E7862611C771005ECFF3 /* SelectClosetViewController.swift */,
+				A771BA30260B03F400652540 /* ClothItemViewController.swift */,
+				A73E87D926567F3400421B5E /* PresetViewController.swift */,
+				A7DCB2EE2657D51900A31398 /* PresetSelectViewController.swift */,
+			);
+			path = Closet;
+			sourceTree = "<group>";
+		};
+		A7DCB2ED2657D4C400A31398 /* TimeLIne */ = {
+			isa = PBXGroup;
+			children = (
+				A760374C2649664300FE1132 /* TimeLineViewController.swift */,
+				A760374E2649674300FE1132 /* TimeLineExtensionViewController.swift */,
+				A7B2BC5426515D4000D1DC81 /* DatePickViewController.swift */,
+			);
+			path = TimeLIne;
 			sourceTree = "<group>";
 		};
 		A7F9012725F0CFA2007DB73A = {
@@ -387,7 +421,9 @@
 				A762CE2A2601D14200D34AAD /* ResizeViewController.swift in Sources */,
 				A79602E925F5F7D400686D69 /* AddClothViewController.swift in Sources */,
 				A79602F425F5F8A100686D69 /* TransitionStyle.swift in Sources */,
+				A760374F2649674300FE1132 /* TimeLineExtensionViewController.swift in Sources */,
 				A70EC15A2615BC8A00604658 /* discard.swift in Sources */,
+				A7DCB2EF2657D51900A31398 /* PresetSelectViewController.swift in Sources */,
 				A73B1F6B26144B5500CFAF0B /* AddClothViewControllerManualCropExtension.swift in Sources */,
 				A7203A1325F78537005E1269 /* AddClothViewControllerPickerExtension.swift in Sources */,
 				A79602F125F5F89400686D69 /* SceneCoordinatorType.swift in Sources */,
@@ -397,6 +433,7 @@
 				A729F40826086A0C00BABAE1 /* ClosetViewController.swift in Sources */,
 				A7F9013425F0CFA2007DB73A /* AppDelegate.swift in Sources */,
 				A79602E625F5F65900686D69 /* Scene.swift in Sources */,
+				A7B2BC532651431A00D1DC81 /* TimeLineViewModel.swift in Sources */,
 				A7504E8F25FB53310042D6D6 /* ViewModelType.swift in Sources */,
 				A71D0820261C68F800640EDC /* ImageCache.swift in Sources */,
 				A7504E8C25FB521B0042D6D6 /* JoinViewController.swift in Sources */,
@@ -404,11 +441,14 @@
 				A740A02026183A44007448FA /* ImageStorage.swift in Sources */,
 				A7504E8625FB4C240042D6D6 /* IntroViewModel.swift in Sources */,
 				A79602E325F5F65100686D69 /* AddClothViewModel.swift in Sources */,
+				A73E87DA26567F3400421B5E /* PresetViewController.swift in Sources */,
 				A7B3DC3025F9FE96001642B6 /* IntroViewController.swift in Sources */,
 				A7B3E7842611C259005ECFF3 /* ClosetSideMenuNavigation.swift in Sources */,
 				A771BA31260B03F400652540 /* ClothItemViewController.swift in Sources */,
 				A7F9013625F0CFA2007DB73A /* SceneDelegate.swift in Sources */,
 				A7B3E7872611C771005ECFF3 /* SelectClosetViewController.swift in Sources */,
+				A7B2BC5526515D4000D1DC81 /* DatePickViewController.swift in Sources */,
+				A760374D2649664300FE1132 /* TimeLineViewController.swift in Sources */,
 				A740A01B261839BA007448FA /* Cloth.swift in Sources */,
 				A79602EE25F5F88200686D69 /* Coordinator.swift in Sources */,
 				A7FE12D725FC99E3007EF1B8 /* UserStorage.swift in Sources */,

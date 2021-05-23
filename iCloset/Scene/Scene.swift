@@ -9,13 +9,16 @@ import Foundation
 import Mantis
 
 enum Scene{
+    case datePick(TimeLineViewModel)
     case addCloth(AddClothViewModel)
     case intro(IntroViewModel)
     case join(IntroViewModel)
-    case closet(ClosetViewModel)
+    case closet(ClosetViewModel,TimeLineViewModel)
     case resize
     case selectCloset(ClosetViewModel)
     case cropping(UIImage)
+    case preset(ClosetViewModel)
+    case presetSelect(ClosetViewModel)
 }
 extension Scene{
     func instantiate(from storyboard:String = "Main") -> UIViewController{
@@ -36,10 +39,11 @@ extension Scene{
         case .resize:
             guard let resizeVC = storyboard.instantiateViewController(identifier: "Resize") as? ResizeViewController else { fatalError() }
             return resizeVC
-        case .closet(let viewModel):
+        case .closet(let viewModel,let timeLineViewModel):
             guard let mainTVC = storyboard.instantiateViewController(identifier: "MainTab") as? UITabBarController else { fatalError() }
             guard let historyNav = mainTVC.children.first as? UINavigationController else { fatalError() }
-            guard let historyVC = historyNav.children.first as? UIViewController else { fatalError() }
+            guard var historyVC = historyNav.children.first as? TimeLineViewController else { fatalError() }
+            historyVC.bind(viewModel: timeLineViewModel)
             guard let closetNav = mainTVC.children.last as? UINavigationController else { fatalError() }
             guard var closetVC = closetNav.children.first as? ClosetViewController else { fatalError() }
             for vc in closetVC.children{
@@ -56,6 +60,18 @@ extension Scene{
         case .cropping(let image):
             let cropViewController = Mantis.cropViewController(image:image)
             return cropViewController
+        case .datePick(let timeLineViewModel):
+            guard var dateVC = storyboard.instantiateViewController(identifier: "datePick") as? DatePickViewController else { fatalError() }
+            dateVC.bind(viewModel: timeLineViewModel)
+            return dateVC
+        case .preset(let presetViewModel):
+            guard var presetVC = storyboard.instantiateViewController(identifier: "Preset") as? PresetViewController else { fatalError() }
+            presetVC.bind(viewModel: presetViewModel)
+            return presetVC
+        case .presetSelect(let viewModel):
+            guard var presetSelectVC = storyboard.instantiateViewController(identifier: "PresetSelect") as? PresetSelectViewController else { fatalError() }
+            presetSelectVC.bind(viewModel: viewModel)
+            return presetSelectVC
         }
     }
 }

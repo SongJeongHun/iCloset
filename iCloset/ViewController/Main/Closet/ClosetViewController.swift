@@ -21,11 +21,6 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
     @IBOutlet weak var selectClosetButton:UIBarButtonItem!
     override func viewDidLoad() {
         scrollView.rx.setDelegate(self).disposed(by: rx.disposeBag)
-//        viewModel.storage.getCloset()
-//            .subscribe(onNext:{ closets in
-//                self.viewModel.selectedCloset = closets[0]
-//
-//            })
         viewModel.selectedCloset = "이름 없는 옷장"
         viewModel.currentCloset.onNext(viewModel.selectedCloset)
         prepareShadowView()
@@ -34,6 +29,7 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
     }
     func bindViewModel() {
         addRefreshController()
+        addPresetButton.rx.action = viewModel.presetAction()
         selectClosetButton.rx.action = viewModel.popSideMenu()
         addClothButton.rx.action = viewModel.addClothAction()
         ApplicationNotiCenter.alertControllerAppear.addObserver()
@@ -88,8 +84,10 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
             case 0:
                 //bottom
                 childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .bottom)
+//                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                     .subscribe(onNext:{ [unowned self] clothes in
                         childVC!.viewModel.storage.getThumbnail(from: clothes, category: .bottom)
+                            
                             .subscribe(onNext:{ img in
                                 childVC!.imgArray.onNext(img)
                             })
@@ -99,9 +97,10 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
             case 1:
                 //shoe
                 childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .shoe)
+//                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                     .subscribe(onNext:{ [unowned self] clothes in
                         childVC!.viewModel.storage.getThumbnail(from: clothes, category: .shoe)
-                            .subscribe(onNext:{ img in
+                                                        .subscribe(onNext:{ img in
                                 childVC!.imgArray.onNext(img)
                             })
                             .disposed(by: self.rx.disposeBag)
@@ -110,8 +109,10 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
             case 2:
                 //acc
                 childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .acc)
+//                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                     .subscribe(onNext:{ [unowned self] clothes in
                         childVC!.viewModel.storage.getThumbnail(from: clothes, category: .acc)
+                            .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                             .subscribe(onNext:{ img in
                                 childVC!.imgArray.onNext(img)
                             })
@@ -121,6 +122,7 @@ class ClosetViewController: UIViewController,ViewControllerBindableType, UIScrol
             case 3:
                 //top
                 childVC!.viewModel.storage.getPath(closet: childVC!.viewModel.selectedCloset, category: .top)
+//                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
                     .subscribe(onNext:{ [unowned self] clothes in
                         childVC!.viewModel.storage.getThumbnail(from: clothes, category: .top)
                             .subscribe(onNext:{ img in

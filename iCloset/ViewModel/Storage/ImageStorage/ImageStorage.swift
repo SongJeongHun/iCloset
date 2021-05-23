@@ -3,6 +3,8 @@
 //  iCloset
 //
 //  Created by 송정훈 on 2021/04/03.
+//observeOn은 Observable이 작업할 스레드 지정, subscribeOn은 구독이 작업할 스레드 지정합니다.
+//subscribeOn은 구독 앞에서 호출해도 되지만, observeOn보다 먼저 호출하여 어떤 스레드에서 구독 작업을 하는지 지정하는 것도 좋습니다.
 //
 import RxSwift
 import Action
@@ -34,7 +36,6 @@ class ImageStorage{
         ref.child("users").child(userID).child(closet).child("\(cloth.category)").rx
             .observeSingleEvent(.value)
             .subscribe(onSuccess: { snap in
-                print(snap)
                 guard let data = snap.value! as? Dictionary<String,Any> else {
                     return subject.onNext(Array())
                 }
@@ -107,19 +108,18 @@ class ImageStorage{
         let subject = PublishSubject<[ClothItem]>()
         var items:[ClothItem] = []
         for i in path {
-            if category == clothCategory.shoe{
-                print(path)
-                print("shoe")
-            }
             let ref = storeRef.reference(forURL: "gs://icloset-a4494.appspot.com/users/\(userID)/\(currentCloset)/\(category)/\(i.name)_img").rx
             Observable.combineLatest(ref.downloadURL(), ref.getMetadata())
-                .subscribe(onNext:{ url,metaData in
-                    print(metaData)
-                    let image = self.imageCache.getFile(url: url)
-                    let time = metaData.value(forKey: "timeCreated") as! Date
+//                .observeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+                .map{
+                    let image = self.imageCache.getFile(url: $0)
+                    let time = $1.value(forKey: "timeCreated") as! Date
                     let item = ClothItem(cloth: i, img: image ?? UIImage(), createdTime: time)
                     items.append(item)
                     items.sort(by:{ $0.createdTime < $1.createdTime })
+                    return items
+                }
+                .subscribe(onNext:{ items in
                     subject.onNext(items)
                 })
                 .disposed(by:bag)
